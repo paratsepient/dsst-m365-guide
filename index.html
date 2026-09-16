@@ -3185,29 +3185,46 @@
     }
   }
 
+
+  /* v1.0.6 — compact app header, no duplicate page header */
+  .compact-appbar .org{gap:12px;}
+  .appbar-copy{min-width:0;display:flex;flex-direction:column;gap:2px;}
+  .appbar-brandline{min-width:0;display:flex;align-items:baseline;gap:9px;}
+  .appbar-brandline strong{color:var(--text);font-size:14px;font-weight:740;letter-spacing:-.01em;white-space:nowrap;}
+  .appbar-brandline span{color:#8a95a5;font-size:11px;white-space:nowrap;}
+  .appbar-context{color:#66758a;font-size:10px;font-weight:600;line-height:1.2;}
+  .appbar-route-state{flex:none;margin-left:auto;background:#fbfcfd;}
+  .shell{padding-top:14px;}
+
+  @media (min-width:900px) and (min-height:700px) and (max-height:820px){
+    .compact-appbar .appbar-context{display:none;}
+    .shell{padding-top:8px;}
+  }
+
+  @media(max-width:899px){
+    .appbar-brandline span{display:none;}
+    .appbar-context{font-size:9px;}
+    .appbar-route-state{display:none;}
+    .shell{padding-top:10px;}
+  }
+
 </style>
 </head>
 <body><a class="skip-link" href="#workspaceMain">Перейти до інструкції</a>
-<header class="appbar">
+<header class="appbar compact-appbar">
 <div class="appbar-inner">
 <div class="org">
 <div aria-hidden="true" class="org-mark"><i></i><i></i><i></i><i></i></div>
-<div class="org-copy">
-<strong>Microsoft 365</strong>
-<span>Корпоративне середовище</span>
+<div class="appbar-copy">
+<div class="appbar-brandline"><strong>Microsoft 365</strong><span>Корпоративне середовище</span></div>
+<div class="appbar-context">Перший вхід та налаштування</div>
 </div>
 </div>
-<div class="appbar-meta">Перший вхід · Microsoft 365</div>
+<div aria-atomic="true" aria-live="polite" class="route-state appbar-route-state" id="routeStatus" role="status">Налаштування триває</div>
 </div>
 </header>
 <div class="shell">
-<div class="page-head">
-<div>
-<div class="crumb">Mil-акаунт / Перший вхід</div>
-<h2 class="page-title">Початок роботи з Microsoft 365</h2>
-</div>
-<div aria-atomic="true" aria-live="polite" class="route-state" id="routeStatus" role="status">Налаштування триває</div>
-</div>
+
 <div class="layout">
 <aside aria-label="Етапи налаштування" class="side">
 <h2>Налаштування</h2>
