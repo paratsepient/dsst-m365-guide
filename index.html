@@ -2944,6 +2944,29 @@
     }
   }
 
+
+  /* v1.0.1 — fill the Teams search scheme across available width */
+  @media (min-width:900px){
+    #findTeams .visual-guide-row{
+      width:100%;
+      display:grid;
+      grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr);
+      align-items:stretch;
+      gap:14px;
+    }
+
+    #findTeams .visual-node{
+      width:100%;
+      min-width:0;
+      height:100%;
+    }
+
+    #findTeams .visual-arrow{
+      align-self:center;
+      justify-self:center;
+    }
+  }
+
 </style>
 </head>
 <body><a class="skip-link" href="#workspaceMain">Перейти до інструкції</a>
