@@ -2010,6 +2010,175 @@
     }
   }
 
+
+  /* ===== v22: overflow fixes + clearer interactive choices ===== */
+
+  /* Keep the whole desktop app on one screen, but let long steps scroll
+     inside the central workspace instead of being clipped. */
+  @media (min-width: 900px) and (min-height: 700px){
+    .workspace-inner{
+      min-height:0;
+    }
+
+    .screen{
+      min-height:0;
+    }
+
+    .screen.active{
+      overflow-y:auto;
+      overflow-x:hidden;
+      padding-right:8px;
+      scrollbar-gutter:stable;
+      overscroll-behavior:contain;
+    }
+
+    .screen.active::-webkit-scrollbar{
+      width:7px;
+    }
+
+    .screen.active::-webkit-scrollbar-track{
+      background:transparent;
+    }
+
+    .screen.active::-webkit-scrollbar-thumb{
+      background:#d5dce6;
+      border-radius:999px;
+    }
+
+    .screen.active::-webkit-scrollbar-thumb:hover{
+      background:#bcc7d5;
+    }
+
+    /* Prevent the bottom action row from colliding with long content. */
+    .actions{
+      flex:0 0 auto;
+      position:sticky;
+      bottom:0;
+      z-index:4;
+      margin-top:auto;
+      padding-top:14px;
+      padding-bottom:2px;
+      background:
+        linear-gradient(to bottom,
+          rgba(255,255,255,0) 0,
+          rgba(255,255,255,.96) 16px,
+          #fff 34px);
+    }
+
+    /* Give long checklists a little breathing room above sticky actions. */
+    .screen.active > .checklist:last-of-type,
+    .screen.active > .choices:last-of-type,
+    .screen.active > .notice:last-of-type,
+    .screen.active > .analogy:last-of-type,
+    .screen.active > .sync-pair:last-of-type,
+    .screen.active > .icon-guide:last-of-type{
+      margin-bottom:18px;
+    }
+  }
+
+  /* Branching choices: make it obvious that these are clickable decisions. */
+  .choice{
+    position:relative;
+    isolation:isolate;
+    cursor:pointer;
+    overflow:visible;
+    animation:choicePulse 2.8s ease-in-out infinite;
+    will-change:box-shadow, transform, border-color, background-color;
+  }
+
+  .choice::before{
+    content:"";
+    position:absolute;
+    inset:-3px;
+    z-index:-1;
+    border-radius:inherit;
+    border:1px solid rgba(31,95,191,0);
+    pointer-events:none;
+    animation:choiceRing 2.8s ease-in-out infinite;
+  }
+
+  .choice:hover,
+  .choice:focus-visible{
+    animation:none;
+    transform:translateY(-1px);
+  }
+
+  .choice:hover::before,
+  .choice:focus-visible::before{
+    animation:none;
+    border-color:rgba(31,95,191,.25);
+  }
+
+  @keyframes choicePulse{
+    0%, 100%{
+      background:#f6f9ff;
+      border-color:#cfdcf3;
+      box-shadow:0 2px 8px rgba(31,95,191,.025);
+    }
+    50%{
+      background:#f1f6ff;
+      border-color:#aac0e3;
+      box-shadow:0 8px 22px rgba(31,95,191,.10);
+    }
+  }
+
+  @keyframes choiceRing{
+    0%, 100%{
+      transform:scale(1);
+      opacity:0;
+      border-color:rgba(31,95,191,0);
+    }
+    45%{
+      opacity:.65;
+      border-color:rgba(31,95,191,.22);
+    }
+    70%{
+      transform:scale(1.012);
+      opacity:0;
+      border-color:rgba(31,95,191,0);
+    }
+  }
+
+  /* Respect accessibility preferences. */
+  @media (prefers-reduced-motion: reduce){
+    .choice,
+    .choice::before{
+      animation:none !important;
+      transition:none !important;
+    }
+  }
+
+  /* On touch devices, keep the color cue but avoid an endless animation. */
+  @media (hover:none){
+    .choice,
+    .choice::before{
+      animation:none;
+    }
+
+    .choice{
+      background:#f2f6fd;
+      border-color:#b9cbea;
+      box-shadow:0 3px 10px rgba(31,95,191,.06);
+    }
+  }
+
+
+  .choice-hint{
+    margin:12px 0 -4px;
+    color:#6f7e91;
+    font-size:10px;
+    font-weight:650;
+    letter-spacing:.045em;
+    text-transform:uppercase;
+  }
+
+  @media(max-width:760px){
+    .choice-hint{
+      margin-top:14px;
+      font-size:10px;
+    }
+  }
+
 </style>
 
 
@@ -3005,6 +3174,21 @@
   // Ініціалізація прогресу для першого екрану.
   setActiveStep(1);
   updateProgressForScreen('start');
+
+
+  function decorateChoiceGroups(){
+    document.querySelectorAll('.choices').forEach(group => {
+      if(group.previousElementSibling &&
+         group.previousElementSibling.classList.contains('choice-hint')) return;
+
+      const hint = document.createElement('div');
+      hint.className = 'choice-hint';
+      hint.textContent = 'Оберіть один із варіантів';
+      group.parentNode.insertBefore(hint, group);
+    });
+  }
+
+  decorateChoiceGroups();
 </script>
 </body>
 </html>
