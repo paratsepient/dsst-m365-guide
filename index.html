@@ -1,12 +1,17 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="uk">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Перший вхід · Microsoft 365</title>
-  
-  
-
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Покрокова інструкція першого входу в корпоративний Microsoft 365: Teams, OneDrive та базові правила безпеки." name="description"/>
+<meta content="#f3f6fa" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
+<meta content="website" property="og:type"/>
+<meta content="Перший вхід · Microsoft 365" property="og:title"/>
+<meta content="Покрокове налаштування корпоративного mil-акаунта, Teams та OneDrive." property="og:description"/>
+<link href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%23fff%22%2F%3E%3Cpath%20fill%3D%22%231f5fbf%22%20d%3D%22M13%2013h17v17H13zM34%2013h17v17H34zM13%2034h17v17H13zM34%2034h17v17H34z%22%2F%3E%3C%2Fsvg%3E" rel="icon"/>
+<title>Перший вхід · Microsoft 365</title>
 <style>
   /* =========================================================
      DSST Microsoft 365 onboarding
@@ -214,26 +219,25 @@
     background:#8ea0b8;
   }
 
-  /* ---------- Three-column layout ---------- */
+  /* ---------- Main two-column layout ---------- */
   .layout{
     display:grid;
-    grid-template-columns:208px minmax(0,1fr) 232px;
-    gap:18px;
+    grid-template-columns:188px minmax(0,1fr);
+    gap:20px;
     align-items:stretch;
   }
 
   /* ---------- Left journey rail ---------- */
   .side{
     min-width:0;
-    padding:16px 13px;
-    border:1px solid rgba(219,226,235,.92);
-    border-radius:14px;
-    background:rgba(255,255,255,.82);
-    box-shadow:0 8px 24px rgba(30,41,59,.045);
+    padding:18px 12px;
+    border:0;
+    border-radius:0;
+    background:transparent;
+    box-shadow:none;
   }
 
-  .side h2,
-  .help-label{
+  .side h2{
     margin:0 0 14px 3px;
     color:#98a2b3;
     font-size:10px;
@@ -252,7 +256,7 @@
   .steps::before{
     content:"";
     position:absolute;
-    left:14px;
+    left:20px;
     top:20px;
     bottom:20px;
     width:1px;
@@ -356,16 +360,16 @@
     min-height:640px;
     overflow:hidden;
     display:flex;
-    border:1px solid var(--line);
-    border-radius:20px;
+    border:1px solid rgba(219,226,235,.92);
+    border-radius:22px;
     background:var(--surface);
-    box-shadow:var(--shadow-card);
+    box-shadow:0 20px 54px rgba(30,41,59,.075);
   }
 
   .workspace-inner{
     width:100%;
     min-width:0;
-    padding:38px 46px 30px;
+    padding:42px 50px 30px;
     display:flex;
     flex-direction:column;
   }
@@ -428,102 +432,88 @@
     line-height:1.58;
   }
 
-  /* ---------- Information grid ---------- */
-  .info-grid{
-    margin:20px 0 18px;
-    display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    overflow:hidden;
-    border:1px solid var(--line);
-    border-radius:14px;
-    background:#fbfcfe;
-  }
 
-  .info{
-    min-height:92px;
-    padding:16px 17px;
-    border-right:1px solid var(--line);
-    background:#fbfcfe;
-  }
-
-  .info:last-child{
-    border-right:0;
-  }
-
-  .info small{
-    display:block;
-    margin-bottom:7px;
-    color:var(--muted-2);
-    font-size:9px;
-    letter-spacing:.05em;
-    text-transform:uppercase;
-  }
-
-  .info strong{
-    color:#1f2937;
-    font-size:12px;
-    font-weight:670;
-    line-height:1.4;
-  }
-
-  /* ---------- Checklist ---------- */
+  /* ---------- Guided task flow ---------- */
   .checklist{
-    margin:16px 0;
-    overflow:hidden;
-    border:1px solid var(--line);
-    border-radius:14px;
-    background:#fff;
+    position:relative;
+    margin:18px 0;
+    overflow:visible;
+    border:0;
+    border-radius:0;
+    background:transparent;
   }
 
   .check{
-    padding:13px 15px;
-    display:grid;
-    grid-template-columns:30px minmax(0,1fr);
-    gap:12px;
-    border-bottom:1px solid var(--line-soft);
+    position:relative;
+    min-height:62px;
+    padding:10px 4px 16px 48px;
+    display:block;
+    border:0;
+    background:transparent;
   }
 
   .check:last-child{
-    border-bottom:0;
+    padding-bottom:6px;
+  }
+
+  .check:not(:last-child)::after{
+    content:"";
+    position:absolute;
+    left:16px;
+    top:39px;
+    bottom:-1px;
+    width:1px;
+    background:linear-gradient(to bottom,#cdd8e7,#e7ecf2);
   }
 
   .check i{
-    width:26px;
-    height:26px;
+    position:absolute;
+    left:0;
+    top:6px;
+    z-index:1;
+    width:32px;
+    height:32px;
     display:grid;
     place-items:center;
-    border-radius:50%;
-    background:var(--accent-soft);
-    color:var(--accent);
+    border:1px solid #ccdaed;
+    border-radius:10px;
+    background:#f3f7fd;
+    box-shadow:0 3px 10px rgba(31,95,191,.045);
+    color:#245a9f;
     font-size:10px;
     font-style:normal;
     font-weight:800;
   }
 
   .check strong{
-    font-size:12px;
-    font-weight:670;
+    display:block;
+    padding-top:1px;
+    color:#1f2d3d;
+    font-size:13px;
+    font-weight:690;
+    line-height:1.4;
   }
 
   .mini{
-    margin-top:3px;
-    color:var(--muted);
-    font-size:10.5px;
+    max-width:680px;
+    margin-top:4px;
+    color:#69778a;
+    font-size:11px;
     line-height:1.5;
   }
 
   /* ---------- Branching choices ---------- */
   .choice-hint{
-    margin:12px 0 -2px;
-    color:#6f7e91;
+    margin:18px 0 8px;
+    color:#6b7b90;
     font-size:10px;
-    font-weight:650;
-    letter-spacing:.045em;
+    font-weight:720;
+    letter-spacing:.06em;
     text-transform:uppercase;
   }
 
   .choices{
-    margin-top:15px;
+    margin-top:0;
     display:grid;
     grid-template-columns:repeat(2,minmax(0,1fr));
     gap:12px;
@@ -552,6 +542,7 @@
   .choice::after{
     content:"›";
     position:absolute;
+    z-index:2;
     right:16px;
     top:50%;
     transform:translateY(-50%);
@@ -563,10 +554,10 @@
   .choice::before{
     content:"";
     position:absolute;
-    inset:-3px;
-    z-index:-1;
+    inset:3px;
+    z-index:0;
     border:1px solid transparent;
-    border-radius:inherit;
+    border-radius:10px;
     pointer-events:none;
     animation:none;
   }
@@ -589,7 +580,9 @@
   .choice:hover::before,
   .choice:focus-visible::before{
     animation:none;
-    border-color:rgba(31,95,191,.25);
+    opacity:1;
+    border-color:rgba(31,95,191,.16);
+    box-shadow:inset 0 0 0 1px rgba(31,95,191,.04);
   }
 
   .choice:focus-visible{
@@ -598,6 +591,8 @@
   }
 
   .choice b{
+    position:relative;
+    z-index:1;
     display:block;
     margin-bottom:5px;
     color:#173b6b;
@@ -607,6 +602,8 @@
   }
 
   .choice span{
+    position:relative;
+    z-index:1;
     display:block;
     color:#5f6f86;
     font-size:11px;
@@ -622,90 +619,158 @@
     50%{
       border-color:#aac0e3;
       background:#f1f6ff;
-      box-shadow:0 8px 22px rgba(31,95,191,.10);
+      box-shadow:0 6px 18px rgba(31,95,191,.09);
     }
   }
 
   @keyframes choiceRing{
     0%,100%{
-      transform:scale(1);
       opacity:0;
+      border-color:rgba(31,95,191,0);
+      box-shadow:inset 0 0 0 0 rgba(31,95,191,0);
     }
     45%{
-      opacity:.65;
-      border-color:rgba(31,95,191,.22);
+      opacity:1;
+      border-color:rgba(31,95,191,.18);
+      box-shadow:inset 0 0 0 1px rgba(31,95,191,.05);
     }
-    70%{
-      transform:scale(1.012);
+    75%{
       opacity:0;
+      border-color:rgba(31,95,191,0);
+      box-shadow:inset 0 0 0 2px rgba(31,95,191,0);
     }
   }
 
-  /* ---------- Notices ---------- */
+  /* ---------- Contextual callouts ---------- */
   .notice{
-    margin:14px 0;
-    padding:13px 15px;
-    display:flex;
-    align-items:flex-start;
-    gap:10px;
-    border:1px solid #dfe5ec;
-    border-radius:12px;
-    background:#f7f9fc;
-    color:var(--text-soft);
+    position:relative;
+    margin:0;
+    padding:16px 46px 16px 17px;
+    display:block;
+    border:1px solid #d9e4f1;
+    border-radius:14px;
+    background:linear-gradient(180deg,#f8fbff 0%,#f4f8fd 100%);
+    color:#425268;
+    box-shadow:none;
     font-size:11px;
-    line-height:1.5;
+    line-height:1.55;
+  }
+
+  .notice::before{
+    content:"Підказка";
+    display:block;
+    margin-bottom:9px;
+    color:#3769a8;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:.075em;
+    text-transform:uppercase;
+  }
+
+  .notice::after{
+    content:"i";
+    position:absolute;
+    top:14px;
+    right:14px;
+    width:22px;
+    height:22px;
+    display:grid;
+    place-items:center;
+    border:1px solid #c9d9ec;
+    border-radius:7px;
+    background:#eef5ff;
+    color:#3769a8;
+    font:800 11px/1 Georgia,serif;
   }
 
   .notice.danger{
-    border-color:var(--danger-line);
-    background:var(--danger-soft);
-    color:#783b34;
+    border-color:#ead8c8;
+    background:linear-gradient(180deg,#fffaf4 0%,#fff7ef 100%);
+    color:#6d4a32;
+  }
+
+  .notice.danger::before{
+    content:"Важливо";
+    color:#9a5726;
+  }
+
+  .notice.danger::after{
+    content:"!";
+    border-color:#ead0b9;
+    background:#fff1e4;
+    color:#9a5726;
+    font-family:inherit;
   }
 
   .notice .dot{
-    width:6px;
-    height:6px;
-    flex:none;
-    margin-top:5px;
-    border-radius:50%;
-    background:currentColor;
+    display:none;
   }
 
-  /* ---------- Four-step flow ---------- */
+  .notice strong{
+    color:inherit;
+    font-weight:720;
+  }
+
+  /* ---------- Vertical guided sequence ---------- */
   .flow{
-    margin:16px 0;
-    display:grid;
-    grid-template-columns:repeat(4,minmax(0,1fr));
-    overflow:hidden;
-    border:1px solid var(--line);
-    border-radius:14px;
-    background:#fbfcfe;
+    position:relative;
+    margin:18px 0;
+    display:block;
+    overflow:visible;
+    border:0;
+    border-radius:0;
+    background:transparent;
   }
 
   .flow .node{
-    min-height:94px;
-    padding:15px;
-    border-right:1px solid var(--line);
-    background:#fbfcfe;
+    position:relative;
+    min-height:62px;
+    padding:10px 4px 16px 48px;
+    border:0;
+    background:transparent;
   }
 
   .flow .node:last-child{
-    border-right:0;
+    padding-bottom:6px;
+  }
+
+  .flow .node:not(:last-child)::after{
+    content:"";
+    position:absolute;
+    left:16px;
+    top:39px;
+    bottom:-1px;
+    width:1px;
+    background:linear-gradient(to bottom,#cdd8e7,#e7ecf2);
   }
 
   .node small{
-    display:block;
-    margin-bottom:6px;
-    color:#346ab5;
-    font-size:9px;
-    font-weight:750;
-    letter-spacing:.05em;
+    position:absolute;
+    left:0;
+    top:6px;
+    z-index:1;
+    width:32px;
+    height:32px;
+    display:grid;
+    place-items:center;
+    margin:0;
+    border:1px solid #ccdaed;
+    border-radius:10px;
+    background:#f3f7fd;
+    box-shadow:0 3px 10px rgba(31,95,191,.045);
+    color:#245a9f;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:0;
   }
 
   .node b{
-    font-size:11px;
-    font-weight:630;
-    line-height:1.42;
+    display:block;
+    padding-top:2px;
+    color:#1f2d3d;
+    font-size:13px;
+    font-weight:690;
+    line-height:1.45;
   }
 
   /* ---------- Analogy / explanation ---------- */
@@ -949,59 +1014,6 @@
     outline-offset:2px;
   }
 
-  /* ---------- Right help panel ---------- */
-  .help{
-    min-width:0;
-    padding:16px 15px;
-    overflow:hidden;
-    border:1px solid rgba(219,226,235,.92);
-    border-radius:14px;
-    background:rgba(255,255,255,.82);
-    box-shadow:0 8px 24px rgba(30,41,59,.045);
-  }
-
-  .help-block{
-    margin:0 0 12px;
-    padding:0 0 13px;
-    border-bottom:1px solid var(--line-soft);
-  }
-
-  .help-block strong{
-    display:block;
-    margin-bottom:5px;
-    color:#27364b;
-    font-size:11px;
-    line-height:1.4;
-  }
-
-  .help-block p,
-  .help details p{
-    margin:0;
-    color:var(--muted);
-    font-size:10.5px;
-    line-height:1.5;
-  }
-
-  .help details{
-    border-bottom:1px solid var(--line-soft);
-  }
-
-  .help summary{
-    padding:10px 0;
-    list-style:none;
-    cursor:pointer;
-    color:#4d5b6c;
-    font-size:10px;
-    font-weight:600;
-  }
-
-  .help summary::-webkit-details-marker{
-    display:none;
-  }
-
-  .help details p{
-    margin-bottom:10px;
-  }
 
   /* ---------- Support / WhatsApp ---------- */
   .support-fab{
@@ -1115,8 +1127,7 @@
       overflow:hidden;
     }
 
-    .side,
-    .help{
+    .side{
       min-height:0;
     }
 
@@ -1192,7 +1203,7 @@
   /* ---------- Wide desktop ---------- */
   @media (min-width:1450px) and (min-height:800px){
     .layout{
-      grid-template-columns:214px minmax(0,1fr) 238px;
+      grid-template-columns:192px minmax(0,1fr);
       gap:20px;
     }
 
@@ -1220,10 +1231,6 @@
     .layout{
       grid-template-columns:190px minmax(0,1fr);
       gap:16px;
-    }
-
-    .help{
-      display:none;
     }
 
     .workspace-inner{
@@ -1278,8 +1285,6 @@
       margin-bottom:12px;
       font-size:12px;
     }
-
-    .info-grid,
     .checklist,
     .flow,
     .analogy,
@@ -1427,20 +1432,6 @@
       font-size:15px;
     }
 
-    .info-grid{
-      grid-template-columns:1fr;
-    }
-
-    .info{
-      min-height:0;
-      border-right:0;
-      border-bottom:1px solid var(--line-soft);
-    }
-
-    .info:last-child{
-      border-bottom:0;
-    }
-
     .choices{
       grid-template-columns:1fr;
     }
@@ -1455,10 +1446,6 @@
 
     .flow .node:nth-child(-n+2){
       border-bottom:1px solid var(--line);
-    }
-
-    .help{
-      display:none;
     }
 
     .actions{
@@ -1591,879 +1578,2318 @@
     animation:choiceRing 2.6s ease-in-out 2;
   }
 
+
+  /* ---------- Premium screen composition ---------- */
+  .task-body,
+  .task-body.no-aside{
+    width:100%;
+    min-height:0;
+    flex:1 1 auto;
+    display:block;
+  }
+
+  .task-main,
+  .task-body.no-aside .task-main{
+    width:100%;
+    max-width:980px;
+    min-width:0;
+  }
+
+  .task-aside{
+    width:100%;
+    max-width:980px;
+    margin-top:20px;
+    padding-top:0;
+    display:block;
+  }
+
+  .task-aside:empty{
+    display:none;
+  }
+
+  .task-aside .notice{
+    width:100%;
+  }
+
+  /* Bottom navigation behaves like an app action bar. */
+  .screen > .actions{
+    width:100%;
+    min-height:58px;
+    margin-top:22px;
+    padding-top:14px;
+  }
+
+  .actions .btn.ghost{
+    order:-1;
+  }
+
+  .actions .btn.primary,
+  .actions .btn.secondary{
+    margin-left:auto;
+  }
+
+  @media (min-width:1450px) and (min-height:800px){
+    .layout{
+      grid-template-columns:192px minmax(0,1fr);
+      gap:22px;
+    }
+
+    .workspace-inner{
+      padding:44px 56px 34px;
+    }
+
+    .task-main,
+    .task-aside{
+      max-width:1040px;
+    }
+  }
+
+  @media (min-width:900px) and (max-width:1099px){
+    .layout{
+      grid-template-columns:166px minmax(0,1fr);
+      gap:16px;
+    }
+
+    .workspace-inner{
+      padding:30px 34px 24px;
+    }
+  }
+
+  @media (min-width:900px) and (min-height:700px) and (max-height:820px){
+    .workspace-inner{
+      padding:24px 34px 18px;
+    }
+
+    .check,
+    .flow .node{
+      min-height:54px;
+      padding-top:7px;
+      padding-bottom:11px;
+      padding-left:44px;
+    }
+
+    .check i,
+    .node small{
+      top:4px;
+      width:29px;
+      height:29px;
+    }
+
+    .check:not(:last-child)::after,
+    .flow .node:not(:last-child)::after{
+      left:14px;
+      top:34px;
+    }
+
+    .check strong,
+    .node b{
+      font-size:12px;
+    }
+
+    .mini{
+      font-size:10px;
+    }
+
+    .notice{
+      padding:13px 42px 13px 14px;
+    }
+
+    .task-aside{
+      margin-top:14px;
+    }
+  }
+
+  @media (max-width:899px){
+    .task-body,
+    .task-body.no-aside{
+      width:100%;
+      display:block;
+    }
+
+    .task-main,
+    .task-body.no-aside .task-main,
+    .task-aside{
+      width:100%;
+      max-width:none;
+    }
+
+    .task-aside{
+      margin-top:14px;
+      padding-top:0;
+    }
+
+    .check,
+    .flow .node{
+      min-height:58px;
+      padding-left:44px;
+    }
+
+    .check i,
+    .node small{
+      width:30px;
+      height:30px;
+    }
+
+    .check:not(:last-child)::after,
+    .flow .node:not(:last-child)::after{
+      left:14px;
+      top:36px;
+    }
+  }
+
+  /* ---------- Balanced adaptive headings ---------- */
+  .screen h1{
+    text-wrap:balance;
+    max-width:980px;
+  }
+
+  .screen h1.title-long{
+    max-width:1000px;
+    font-size:clamp(29px,2.35vw,37px);
+    line-height:1.06;
+    letter-spacing:-.043em;
+  }
+
+  .screen h1.title-very-long{
+    max-width:1040px;
+    font-size:clamp(28px,2.15vw,35px);
+    line-height:1.07;
+    letter-spacing:-.04em;
+  }
+
+  @supports not (text-wrap:balance){
+    .screen h1{
+      max-width:920px;
+    }
+  }
+
+  @media (max-width:899px){
+    .screen h1,
+    .screen h1.title-long,
+    .screen h1.title-very-long{
+      max-width:none;
+      font-size:clamp(28px,8vw,32px);
+      line-height:1.08;
+      text-wrap:pretty;
+    }
+  }
+
+  /* ---------- Optional step treatment ---------- */
+  .optional-screen .workspace-rule{
+    background:linear-gradient(90deg,#6683aa,#9fb2ca);
+  }
+
+  .optional-screen .eyebrow{
+    color:#617791;
+  }
+
+  .optional-screen .eyebrow::after{
+    content:"Необов’язково";
+    display:inline-flex;
+    align-items:center;
+    min-height:22px;
+    margin-left:10px;
+    padding:3px 8px;
+    border:1px solid #bfd3ee;
+    border-radius:999px;
+    background:#eef5ff;
+    color:#2f67ad;
+    font-size:9px;
+    font-weight:760;
+    letter-spacing:.045em;
+    text-transform:none;
+    vertical-align:middle;
+  }
+
+  .optional-screen .check:not(:last-child)::after,
+  .optional-screen .flow .node:not(:last-child)::after{
+    background:
+      repeating-linear-gradient(
+        to bottom,
+        #c7d2df 0 4px,
+        transparent 4px 8px
+      );
+  }
+
+  .optional-screen .check i,
+  .optional-screen .node small{
+    border-color:#cbd6e3;
+    background:#f7f9fc;
+    color:#657b96;
+    box-shadow:none;
+  }
+
+  .optional-screen .choice{
+    border-color:#cbd6e3;
+    background:linear-gradient(180deg,#fafbfd 0%,#f5f7fa 100%);
+  }
+
+  .optional-screen .choice b{
+    color:#31465f;
+  }
+
+  /* ---------- Progress state ---------- */
+  .progress > i{
+    background:#1f5fbf;
+    box-shadow:0 0 0 1px rgba(255,255,255,.18) inset;
+    transition:
+      width .3s ease,
+      background-color .35s ease,
+      box-shadow .35s ease;
+  }
+
+  .progress.complete > i{
+    box-shadow:0 0 0 1px rgba(255,255,255,.22) inset, 0 0 12px rgba(39,103,73,.12);
+  }
+
+  .progress-label .progress-state{
+    margin-left:auto;
+    color:inherit;
+    font-weight:650;
+  }
+
+
+  /* ---------- Support anchored in the desktop journey rail ---------- */
+  .side{
+    display:flex;
+    flex-direction:column;
+  }
+
+  .support-area{
+    position:relative;
+    margin-top:auto;
+    padding:14px 4px 0;
+    border-top:1px solid var(--line-soft);
+  }
+
+  .support-area .support-fab{
+    position:static;
+    width:100%;
+    min-height:42px;
+    padding:10px 11px;
+    justify-content:flex-start;
+    border-radius:10px;
+    box-shadow:none;
+    background:#fff;
+  }
+
+  .support-area .support-fab:hover{
+    transform:none;
+    background:#f9fbfd;
+  }
+
+  .support-area .support-note{
+    position:absolute;
+    left:0;
+    right:auto;
+    bottom:52px;
+    width:300px;
+    max-width:min(300px,calc(100vw - 40px));
+    border-radius:12px;
+    box-shadow:0 14px 34px rgba(16,24,40,.14);
+  }
+
+  @media (max-width:899px){
+
+    .support-area{
+      position:static;
+      margin-top:8px;
+      padding:0;
+      border-top:0;
+    }
+
+    .support-area .support-fab{
+      position:fixed;
+      right:14px;
+      bottom:14px;
+      width:auto;
+      min-height:40px;
+      padding:9px 14px;
+      justify-content:center;
+      border-radius:12px;
+      box-shadow:0 8px 22px rgba(16,24,40,.12);
+    }
+
+    .support-area .support-note{
+      position:fixed;
+      left:auto;
+      right:14px;
+      bottom:64px;
+      width:min(320px,calc(100vw - 28px));
+      max-width:none;
+    }
+  }
+
+
+  /* ---------- Premium completion state ---------- */
+  .workspace.is-finish .workspace-rule{
+    background:linear-gradient(90deg,#2e7d57,#72a98e);
+  }
+
+  #finish{
+    justify-content:flex-start;
+  }
+
+  .finish-success{
+    max-width:900px;
+  }
+.finish-badge{
+    width:max-content;
+    margin-bottom:12px;
+    padding:5px 9px;
+    border:1px solid #cfe1d6;
+    border-radius:999px;
+    background:#f3f8f5;
+    color:#2f7454;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:.065em;
+    text-transform:uppercase;
+  }
+
+  #finish h1{
+    max-width:820px;
+    margin-bottom:12px;
+  }
+
+  #finish .lead{
+    max-width:800px;
+    margin-bottom:0;
+  }
+
+  .finish-summary{
+    max-width:800px;
+    margin-top:30px;
+    display:grid;
+    gap:0;
+  }
+
+  .finish-row{
+    min-height:68px;
+    display:grid;
+    grid-template-columns:36px minmax(0,1fr);
+    gap:14px;
+    align-items:center;
+    border-bottom:1px solid var(--line-soft);
+  }
+
+  .finish-row:last-child{
+    border-bottom:0;
+  }
+
+  .finish-row-icon{
+    width:30px;
+    height:30px;
+    display:grid;
+    place-items:center;
+    border:1px solid #cfe1d6;
+    border-radius:10px;
+    background:#f1f8f4;
+    color:#2f7a57;
+    font-size:13px;
+    font-weight:800;
+  }
+
+  .finish-row-copy{
+    min-width:0;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:24px;
+  }
+
+  .finish-row-copy strong{
+    color:#1f2d3d;
+    font-size:13px;
+    font-weight:690;
+  }
+
+  .finish-row-copy span{
+    color:#526477;
+    font-size:12px;
+    font-weight:600;
+    text-align:right;
+  }
+
+  .finish-next{
+    max-width:800px;
+    margin-top:24px;
+    padding:15px 17px;
+    border:1px solid #e0e6ed;
+    border-radius:14px;
+    background:#f8fafc;
+  }
+
+  .finish-next-label{
+    margin-bottom:6px;
+    color:#67778b;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:.07em;
+    text-transform:uppercase;
+  }
+
+  .finish-next p{
+    margin:0;
+    color:#556579;
+    font-size:11px;
+    line-height:1.55;
+  }
+
+  .finish-actions{
+    max-width:800px;
+    border-top:0;
+    padding-top:8px;
+    margin-top:8px;
+    min-height:0;
+  }
+
+  .finish-actions .btn.ghost{
+    margin-left:0;
+    padding-left:0;
+    padding-right:0;
+    color:#738196;
+    font-weight:600;
+  }
+
+  .finish-actions .btn.ghost:hover{
+    color:#324358;
+  }
+
+  @media (min-width:900px) and (min-height:700px){
+    #finish{
+      overflow-y:auto;
+    }
+  }
+
+  @media (max-width:899px){
+.finish-summary{
+      width:100%;
+      margin-top:24px;
+    }
+
+    .finish-row{
+      min-height:64px;
+    }
+
+    .finish-row-copy{
+      display:block;
+    }
+
+    .finish-row-copy span{
+      display:block;
+      margin-top:3px;
+      text-align:left;
+    }
+
+    .finish-next{
+      width:100%;
+    }
+  }
+
+
+  .optional-word{
+    color:#2f67ad;
+    font-weight:inherit;
+  }
+
+
+  /* =========================================================
+     Phase 3 — smart route / resume
+     ========================================================= */
+
+  .route-state.is-optional{
+    border-color:#bfd3ee;
+    background:#f5f9ff;
+    color:#2f67ad;
+  }
+
+  .route-state.is-complete{
+    border-color:#cfe1d6;
+    background:#f2f8f4;
+    color:#276749;
+  }
+
+  .progress-label{
+    align-items:center;
+  }
+
+  #pct{
+    transition:color .35s ease;
+  }
+
+  .resume-overlay{
+    position:fixed;
+    inset:0;
+    z-index:1000;
+    display:grid;
+    place-items:center;
+    padding:20px;
+    background:rgba(15,23,42,.34);
+    backdrop-filter:blur(6px);
+    -webkit-backdrop-filter:blur(6px);
+  }
+
+  .resume-overlay[hidden]{
+    display:none;
+  }
+
+  .resume-dialog{
+    width:min(470px,100%);
+    padding:26px;
+    border:1px solid #dbe3ed;
+    border-radius:18px;
+    background:#fff;
+    box-shadow:0 24px 70px rgba(15,23,42,.20);
+  }
+
+  .resume-icon{
+    width:40px;
+    height:40px;
+    margin-bottom:16px;
+    display:grid;
+    place-items:center;
+    border:1px solid #cbd9eb;
+    border-radius:12px;
+    background:#f3f7fd;
+    color:#2f67ad;
+    font-size:18px;
+    font-weight:700;
+  }
+
+  .resume-kicker{
+    margin-bottom:8px;
+    color:#2f67ad;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:.075em;
+    text-transform:uppercase;
+  }
+
+  .resume-dialog h2{
+    max-width:390px;
+    margin:0 0 9px;
+    color:#172033;
+    font-size:23px;
+    font-weight:730;
+    line-height:1.12;
+    letter-spacing:-.035em;
+    text-wrap:balance;
+  }
+
+  .resume-dialog p{
+    margin:0;
+    color:#667589;
+    font-size:12px;
+    line-height:1.55;
+  }
+
+  .resume-actions{
+    margin-top:22px;
+    display:flex;
+    justify-content:flex-end;
+    gap:9px;
+  }
+
+  @media(max-width:560px){
+    .resume-dialog{
+      padding:22px 18px;
+      border-radius:16px;
+    }
+
+    .resume-dialog h2{
+      font-size:21px;
+    }
+
+    .resume-actions{
+      flex-direction:column-reverse;
+    }
+
+    .resume-actions .btn{
+      width:100%;
+    }
+  }
+
+
+  /* ---------- Start screen redesign ---------- */
+  #start{
+    justify-content:flex-start;
+  }
+
+  #start h1{
+    max-width:980px;
+    margin-bottom:12px;
+  }
+
+  #start .lead{
+    max-width:860px;
+    margin-bottom:0;
+  }
+
+  .start-services{
+    max-width:980px;
+    margin-top:26px;
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:10px;
+  }
+
+  .start-service{
+    min-height:78px;
+    padding:14px 15px;
+    display:grid;
+    grid-template-columns:34px minmax(0,1fr);
+    gap:11px;
+    align-items:center;
+    border:1px solid var(--line);
+    border-radius:13px;
+    background:#fbfcfe;
+  }
+
+  .start-service-icon{
+    width:32px;
+    height:32px;
+    display:grid;
+    place-items:center;
+    border-radius:9px;
+    background:#eef5ff;
+    color:#2f67ad;
+  }
+
+  .start-service-icon svg{
+    width:17px;
+    height:17px;
+    display:block;
+  }
+
+  .start-service small{
+    display:block;
+    margin-bottom:4px;
+    color:#7c8a9c;
+    font-size:9px;
+    font-weight:760;
+    letter-spacing:.055em;
+    text-transform:uppercase;
+  }
+
+  .start-service strong{
+    display:block;
+    color:#243348;
+    font-size:11px;
+    font-weight:670;
+    line-height:1.4;
+  }
+
+  .start-ready{
+    max-width:980px;
+    margin-top:18px;
+    padding:18px 19px;
+    border:1px solid #d8e3ef;
+    border-radius:15px;
+    background:linear-gradient(180deg,#f9fbfe 0%,#f5f8fc 100%);
+  }
+
+  .start-ready-head{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:20px;
+    margin-bottom:14px;
+  }
+
+  .start-ready-kicker{
+    margin-bottom:4px;
+    color:#2f67ad;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:.07em;
+    text-transform:uppercase;
+  }
+
+  .start-ready h3{
+    margin:0;
+    color:#1e2b3c;
+    font-size:16px;
+    font-weight:700;
+  }
+
+  .start-ready-time{
+    padding:5px 8px;
+    border:1px solid #d8e2ed;
+    border-radius:999px;
+    background:#fff;
+    color:#718095;
+    font-size:9px;
+    font-weight:700;
+    white-space:nowrap;
+  }
+
+  .start-ready-list{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:12px;
+  }
+
+  .start-ready-item{
+    min-width:0;
+    display:grid;
+    grid-template-columns:26px minmax(0,1fr);
+    gap:9px;
+    align-items:start;
+  }
+
+  .start-ready-num{
+    width:24px;
+    height:24px;
+    display:grid;
+    place-items:center;
+    border:1px solid #c8d7e9;
+    border-radius:8px;
+    background:#fff;
+    color:#2f67ad;
+    font-size:9px;
+    font-weight:800;
+  }
+
+  .start-ready-item strong{
+    display:block;
+    margin-bottom:3px;
+    color:#28374a;
+    font-size:11px;
+    font-weight:680;
+    line-height:1.4;
+  }
+
+  .start-ready-item span:not(.start-ready-num){
+    display:block;
+    color:#6b798c;
+    font-size:10px;
+    line-height:1.45;
+  }
+
+  .start-note{
+    max-width:980px;
+    margin-top:14px;
+    color:#728095;
+    font-size:10.5px;
+    line-height:1.5;
+  }
+
+  .start-actions{
+    max-width:980px;
+    margin-top:18px;
+    padding-top:14px;
+  }
+
+  .start-primary{
+    min-height:42px;
+    padding-left:17px;
+    padding-right:15px;
+  }
+
+  .start-primary span{
+    display:inline-block;
+    margin-left:7px;
+    transition:transform .15s ease;
+  }
+
+  .start-primary:hover span{
+    transform:translateX(3px);
+  }
+
+  @media (min-width:900px) and (min-height:700px) and (max-height:820px){
+    .start-services{
+      margin-top:16px;
+    }
+
+    .start-service{
+      min-height:66px;
+      padding:11px 12px;
+    }
+
+    .start-ready{
+      margin-top:12px;
+      padding:14px 15px;
+    }
+
+    .start-ready-head{
+      margin-bottom:10px;
+    }
+
+    .start-note{
+      margin-top:10px;
+    }
+
+    .start-actions{
+      margin-top:10px;
+    }
+  }
+
+  @media (max-width:899px){
+    .start-services,
+    .start-ready-list{
+      grid-template-columns:1fr;
+    }
+
+    .start-services{
+      width:100%;
+    }
+
+    .start-ready{
+      width:100%;
+    }
+
+    .start-ready-list{
+      gap:10px;
+    }
+
+    .start-ready-head{
+      align-items:center;
+    }
+
+    .start-actions{
+      width:100%;
+    }
+
+    .start-primary{
+      width:100%;
+      justify-content:center;
+    }
+  }
+
+
+  /* =========================================================
+     Phase 4 — contextual help / browser navigation
+     ========================================================= */
+
+  .support-context{
+    display:block;
+    margin-bottom:7px;
+    color:#2f67ad;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:.065em;
+    text-transform:uppercase;
+  }
+
+  .support-route{
+    margin-top:10px;
+    padding-top:9px;
+    border-top:1px solid var(--line-soft);
+    color:#7b8797;
+    font-size:9px;
+    line-height:1.45;
+  }
+
+  .support-note.show{
+    animation:supportIn .14s ease;
+  }
+
+  @keyframes supportIn{
+    from{
+      opacity:0;
+      transform:translateY(4px);
+    }
+    to{
+      opacity:1;
+      transform:none;
+    }
+  }
+
+  @media(prefers-reduced-motion:reduce){
+    .support-note.show{
+      animation:none;
+    }
+  }
+
+
+  /* =========================================================
+     Phase 5 — visual guidance
+     Abstract instructional diagrams, not UI screenshots
+     ========================================================= */
+
+  .visual-guide{
+    max-width:900px;
+    margin:16px 0 18px;
+    padding:15px 16px;
+    border:1px solid #dbe5f0;
+    border-radius:14px;
+    background:linear-gradient(180deg,#fbfdff 0%,#f7faff 100%);
+  }
+
+  .visual-guide-label{
+    margin-bottom:11px;
+    color:#75869b;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:.075em;
+    text-transform:uppercase;
+  }
+
+  .visual-guide-row{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+
+  .visual-node{
+    min-width:0;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 12px;
+    border:1px solid #d9e3ee;
+    border-radius:12px;
+    background:#fff;
+    color:#34475e;
+  }
+
+  .visual-node strong{
+    font-size:11px;
+    font-weight:700;
+    line-height:1.35;
+  }
+
+  .visual-node span{
+    display:block;
+    margin-top:2px;
+    color:#758398;
+    font-size:9.5px;
+    line-height:1.35;
+  }
+
+  .visual-icon{
+    width:30px;
+    height:30px;
+    flex:none;
+    display:grid;
+    place-items:center;
+    border-radius:9px;
+    background:#eef5ff;
+    color:#2f67ad;
+  }
+
+  .visual-icon svg{
+    width:17px;
+    height:17px;
+    display:block;
+  }
+
+  .visual-arrow{
+    flex:none;
+    color:#88a0bd;
+    font-size:18px;
+    font-weight:600;
+  }
+
+  .visual-code{
+    display:flex;
+    gap:5px;
+  }
+
+  .visual-code span{
+    width:24px;
+    height:28px;
+    display:grid;
+    place-items:center;
+    border:1px solid #d6e0eb;
+    border-radius:7px;
+    background:#fff;
+    color:#42556d;
+    font-size:11px;
+    font-weight:700;
+  }
+
+  .visual-decision{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+  }
+
+  .visual-decision-card{
+    min-height:74px;
+    padding:12px 13px;
+    display:grid;
+    grid-template-columns:30px minmax(0,1fr);
+    gap:10px;
+    align-items:center;
+    border:1px solid #dbe4ee;
+    border-radius:12px;
+    background:#fff;
+  }
+
+  .visual-decision-card.good{
+    border-color:#cfe1d6;
+    background:#f5faf7;
+  }
+
+  .visual-decision-card.bad{
+    border-color:#ead8c8;
+    background:#fffaf5;
+  }
+
+  .visual-decision-mark{
+    width:28px;
+    height:28px;
+    display:grid;
+    place-items:center;
+    border-radius:9px;
+    font-size:13px;
+    font-weight:800;
+  }
+
+  .visual-decision-card.good .visual-decision-mark{
+    background:#eaf5ee;
+    color:#2f7a57;
+  }
+
+  .visual-decision-card.bad .visual-decision-mark{
+    background:#fff0e4;
+    color:#a05d2c;
+  }
+
+  .visual-decision-card strong{
+    display:block;
+    margin-bottom:2px;
+    color:#2a394c;
+    font-size:11px;
+    font-weight:700;
+  }
+
+  .visual-decision-card span{
+    color:#6d7b8c;
+    font-size:9.5px;
+    line-height:1.35;
+  }
+
+  .visual-sync{
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    gap:12px;
+    align-items:center;
+  }
+
+  .visual-sync-side{
+    min-height:78px;
+    padding:12px 14px;
+    display:flex;
+    align-items:center;
+    gap:11px;
+    border:1px solid #dce4ed;
+    border-radius:12px;
+    background:#fff;
+  }
+
+  .visual-sync-side strong{
+    display:block;
+    color:#2b3b50;
+    font-size:11px;
+  }
+
+  .visual-sync-side span{
+    display:block;
+    margin-top:3px;
+    color:#748296;
+    font-size:9.5px;
+  }
+
+  .visual-sync-arrow{
+    color:#2f67ad;
+    font-size:22px;
+  }
+
+  .visual-status{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+
+  .visual-status-item{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    padding:10px 12px;
+    border:1px solid #dce4ed;
+    border-radius:11px;
+    background:#fff;
+  }
+
+  .visual-status-symbol{
+    width:26px;
+    height:26px;
+    display:grid;
+    place-items:center;
+    border-radius:8px;
+    background:#eef5ff;
+    color:#2f67ad;
+  }
+
+  .visual-status-item strong{
+    display:block;
+    color:#314357;
+    font-size:10.5px;
+  }
+
+  .visual-status-item span{
+    display:block;
+    margin-top:2px;
+    color:#768498;
+    font-size:9px;
+  }
+
+  @media(max-width:899px){
+    .visual-guide{
+      width:100%;
+      margin-top:14px;
+    }
+
+    .visual-guide-row,
+    .visual-sync{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:9px;
+    }
+
+    .visual-arrow,
+    .visual-sync-arrow{
+      transform:rotate(90deg);
+      text-align:center;
+    }
+
+    .visual-decision{
+      grid-template-columns:1fr;
+    }
+
+    .visual-status{
+      display:grid;
+      grid-template-columns:1fr;
+    }
+  }
+
+
+  
+  /* Phase 5.2 — minimal OneDrive cue */
+  .onedrive-inline-hint{
+    width:max-content;
+    max-width:100%;
+    margin:14px 0 2px;
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    color:#687482;
+  }
+
+  .onedrive-inline-hint svg{
+    width:25px;
+    height:25px;
+    flex:none;
+  }
+
+  .onedrive-inline-hint span{
+    font-size:10.5px;
+    line-height:1.4;
+  }
+
+  .onedrive-inline-hint strong{
+    color:#344358;
+    font-weight:700;
+  }
+
+  @media(max-width:520px){
+    .onedrive-inline-hint{
+      margin-top:12px;
+    }
+  }
+
+
+  /* =========================================================
+     Phase 5.3 — layout safety
+     Content and bottom actions are separate desktop regions.
+     This prevents notices/checklists from sliding under actions.
+     ========================================================= */
+
+  @media (min-width:900px) and (min-height:700px){
+    /* The screen itself no longer scrolls behind the action bar. */
+    .screen.active.safe-action-layout{
+      overflow:hidden;
+      padding-right:0;
+      scrollbar-gutter:auto;
+    }
+
+    /* Everything between the lead and actions scrolls independently. */
+    .screen.active.safe-action-layout > .task-body{
+      flex:1 1 auto;
+      min-height:0;
+      overflow-y:auto;
+      overflow-x:hidden;
+      padding-right:8px;
+      padding-bottom:22px;
+      scrollbar-gutter:stable;
+      overscroll-behavior:contain;
+    }
+
+    .screen.active.safe-action-layout > .task-body::-webkit-scrollbar{
+      width:7px;
+    }
+
+    .screen.active.safe-action-layout > .task-body::-webkit-scrollbar-track{
+      background:transparent;
+    }
+
+    .screen.active.safe-action-layout > .task-body::-webkit-scrollbar-thumb{
+      border-radius:999px;
+      background:#d5dce6;
+    }
+
+    .screen.active.safe-action-layout > .task-body::-webkit-scrollbar-thumb:hover{
+      background:#bcc7d5;
+    }
+
+    /* Actions remain in normal flow: they can no longer cover content. */
+    .screen.active.safe-action-layout > .actions{
+      position:relative;
+      bottom:auto;
+      z-index:2;
+      flex:0 0 auto;
+      width:100%;
+      min-height:58px;
+      margin-top:0;
+      padding-top:14px;
+      padding-bottom:2px;
+      border-top:1px solid var(--line-soft);
+      background:#fff;
+    }
+
+    /* No last child needs artificial room for a sticky overlay anymore. */
+    .screen.active.safe-action-layout > .task-body .task-main > :last-child,
+    .screen.active.safe-action-layout > .task-body .task-aside > :last-child{
+      margin-bottom:0;
+    }
+
+    /* Finish has no .lead/.task-body, so keep a safe ordinary scroller. */
+    #finish.screen.active{
+      overflow-y:auto;
+      overflow-x:hidden;
+      padding-right:8px;
+      scrollbar-gutter:stable;
+    }
+
+    #finish.screen.active > .actions{
+      position:relative;
+      bottom:auto;
+      margin-top:22px;
+      background:#fff;
+    }
+  }
+
+  /* On shorter desktops the document already scrolls naturally. */
+  @media (min-width:900px) and (max-height:699px){
+    .screen.active > .actions{
+      position:relative;
+      bottom:auto;
+    }
+  }
+
+
+  /* =========================================================
+     Phase 6 — production accessibility and resilience
+     ========================================================= */
+
+  .skip-link{
+    position:fixed;
+    left:16px;
+    top:12px;
+    z-index:2000;
+    padding:9px 12px;
+    border:1px solid #b8cae2;
+    border-radius:9px;
+    background:#fff;
+    color:#174b99;
+    box-shadow:0 8px 24px rgba(16,24,40,.14);
+    font-size:12px;
+    font-weight:700;
+    text-decoration:none;
+    transform:translateY(-160%);
+    transition:transform .14s ease;
+  }
+
+  .skip-link:focus{
+    transform:translateY(0);
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  summary:focus-visible{
+    outline:3px solid rgba(31,95,191,.22);
+    outline-offset:3px;
+  }
+
+  .screen h1[tabindex="-1"]:focus{
+    outline:none;
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    html{
+      scroll-behavior:auto;
+    }
+
+    *,
+    *::before,
+    *::after{
+      scroll-behavior:auto !important;
+      animation-duration:.01ms !important;
+      animation-iteration-count:1 !important;
+      transition-duration:.01ms !important;
+    }
+  }
+
 </style>
-
-
-
 </head>
-<body>
-  <header class="appbar">
-    <div class="appbar-inner">
-      <div class="org">
-        <div class="org-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-        <div class="org-copy">
-          <strong>Microsoft 365</strong>
-          <span>Корпоративне середовище</span>
-        </div>
-      </div>
-      <div class="appbar-meta">Перший вхід · Microsoft 365</div>
-    </div>
-  </header>
-
-  <div class="shell">
-    <div class="page-head">
-      <div>
-        <div class="crumb">Mil-акаунт / Перший вхід</div>
-        <h2 class="page-title">Початок роботи з Microsoft 365</h2>
-      </div>
-      <div class="route-state" id="routeStatus">Налаштування триває</div>
-    </div>
-
-    <div class="layout">
-      <aside class="side">
-        <h2>Ваш шлях</h2>
-        <div class="steps" id="stepList">
-          <div class="step active" data-step="1"><div class="num">1</div><span>Підготовка</span></div>
-          <div class="step" data-step="2"><div class="num">2</div><span>Вхід у Teams</span></div>
-          <div class="step" data-step="3"><div class="num">3</div><span>OneDrive</span></div>
-          <div class="step" data-step="4"><div class="num">4</div><span>Безпека</span></div>
-        </div>
-        <div class="progress-wrap">
-          <div class="progress-label"><span>Прогрес</span><span id="pct">0%</span></div>
-          <div class="progress"><i id="bar"></i></div>
-        </div>
-        <div class="footer-note">
+<body><a class="skip-link" href="#workspaceMain">Перейти до інструкції</a>
+<header class="appbar">
+<div class="appbar-inner">
+<div class="org">
+<div aria-hidden="true" class="org-mark"><i></i><i></i><i></i><i></i></div>
+<div class="org-copy">
+<strong>Microsoft 365</strong>
+<span>Корпоративне середовище</span>
+</div>
+</div>
+<div class="appbar-meta">Перший вхід · Microsoft 365</div>
+</div>
+</header>
+<div class="shell">
+<div class="page-head">
+<div>
+<div class="crumb">Mil-акаунт / Перший вхід</div>
+<h2 class="page-title">Початок роботи з Microsoft 365</h2>
+</div>
+<div aria-atomic="true" aria-live="polite" class="route-state" id="routeStatus" role="status">Налаштування триває</div>
+</div>
+<div class="layout">
+<aside aria-label="Етапи налаштування" class="side">
+<h2>Налаштування</h2>
+<div class="steps" id="stepList" role="list">
+<div aria-current="step" class="step active" data-step="1" role="listitem"><div class="num">1</div><span>Підготовка</span></div>
+<div class="step" data-step="2" role="listitem"><div class="num">2</div><span>Вхід у Teams</span></div>
+<div class="step" data-step="3" role="listitem"><div class="num">3</div><span>OneDrive</span></div>
+<div class="step" data-step="4" role="listitem"><div class="num">4</div><span>Безпека</span></div>
+</div>
+<div class="progress-wrap">
+<div class="progress-label"><span>Прогрес маршруту</span><span class="progress-state" id="pct">0%</span></div>
+<div aria-label="Прогрес налаштування" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" class="progress" role="progressbar"><i id="bar"></i></div>
+</div>
+<div class="footer-note">
           Один mil-акаунт — корпоративна пошта, Microsoft Teams і OneDrive.
         </div>
-      </aside>
-
-      <main class="workspace"><div class="workspace-inner"><div class="workspace-rule"></div>
-        <section class="screen active" id="start" data-step="1">
-          <div class="eyebrow">Початок роботи</div>
-          <h1>Вітаємо! Вам створено корпоративний акаунт dsst.mil.ua</h1>
-          <p class="lead">Ця інструкція допоможе виконати перший вхід, налаштувати Microsoft Teams і підключити OneDrive для роботи з корпоративними файлами.</p>
-
-          <div class="info-grid">
-            <div class="info">
-              <small>01 · Пошта</small>
-              <strong>Корпоративна електронна пошта dsst.mil.ua</strong>
-            </div>
-            <div class="info">
-              <small>02 · Спілкування</small>
-              <strong>Microsoft Teams — корпоративний месенджер</strong>
-            </div>
-            <div class="info">
-              <small>03 · Файли</small>
-              <strong>OneDrive — корпоративне сховище робочих файлів</strong>
-            </div>
+<div class="support-area">
+<div aria-label="Допомога на поточному кроці" aria-live="polite" class="support-note" id="supportNote" role="dialog">
+<strong id="supportTitle">Допомога на цьому кроці</strong>
+<p id="supportText">Ми підготуємо повідомлення з назвою поточного кроку.</p>
+<a class="support-link" href="#" id="supportLink" rel="noopener noreferrer" target="_blank">
+      Написати у WhatsApp
+    </a>
+</div>
+<button aria-controls="supportNote" aria-expanded="false" class="support-fab" id="supportFab" onclick="openWhatsAppSupport()" type="button">
+<span aria-hidden="true" class="support-dot"></span>
+<span>Потрібна допомога?</span>
+</button>
+</div>
+</aside>
+<main class="workspace" id="workspaceMain"><div class="workspace-inner"><div class="workspace-rule"></div>
+<section aria-labelledby="start-title" class="screen active" data-step="1" id="start">
+<div class="eyebrow">Початок роботи</div>
+<h1 id="start-title" tabindex="-1">Вітаємо! Ваш корпоративний акаунт dsst.mil.ua готовий до активації</h1>
+<p class="lead">За кілька кроків ви виконаєте перший вхід у Microsoft 365, налаштуєте Teams і отримаєте доступ до корпоративного OneDrive.</p>
+<div aria-label="Доступні сервіси" class="start-services">
+<div class="start-service">
+<div aria-hidden="true" class="start-service-icon">
+<svg viewbox="0 0 24 24">
+<path d="M4.5 6.5h15v11h-15z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.6"></path>
+<path d="m5 7 7 5 7-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path>
+</svg>
+</div>
+<div>
+<small>Пошта</small>
+<strong>Корпоративна адреса dsst.mil.ua</strong>
+</div>
+</div>
+<div class="start-service">
+<div aria-hidden="true" class="start-service-icon">
+<svg viewbox="0 0 24 24">
+<path d="M5 5.5h14v9H9l-4 3v-12Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.6"></path>
+<path d="M8.5 9h7M8.5 11.8h5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.6"></path>
+</svg>
+</div>
+<div>
+<small>Спілкування</small>
+<strong>Microsoft Teams</strong>
+</div>
+</div>
+<div class="start-service">
+<div aria-hidden="true" class="start-service-icon">
+<svg viewbox="0 0 24 24">
+<path d="M7.5 18.25h9.2a4.05 4.05 0 0 0 .42-8.08A5.55 5.55 0 0 0 6.7 8.65a4.8 4.8 0 0 0 .8 9.6Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path>
+</svg>
+</div>
+<div>
+<small>Файли</small>
+<strong>Корпоративний OneDrive</strong>
+</div>
+</div>
+</div>
+<div class="start-ready">
+<div class="start-ready-head">
+<div>
+<div class="start-ready-kicker">Перед початком</div>
+<h3>Підготуйте три речі</h3>
+</div>
+<div class="start-ready-time">≈ 5–10 хв</div>
+</div>
+<div class="start-ready-list">
+<div class="start-ready-item">
+<span class="start-ready-num">1</span>
+<div>
+<strong>Корпоративна електронна адреса</strong>
+<span>Ваша адреса у домені dsst.mil.ua.</span>
+</div>
+</div>
+<div class="start-ready-item">
+<span class="start-ready-num">2</span>
+<div>
+<strong>Тимчасовий пароль</strong>
+<span>Пароль, який вам надали для першого входу.</span>
+</div>
+</div>
+<div class="start-ready-item">
+<span class="start-ready-num">3</span>
+<div>
+<strong>Телефон для підтвердження</strong>
+<span>На нього може надійти SMS із кодом.</span>
+</div>
+</div>
+</div>
+</div>
+<div class="start-note">
+            Перший вхід виконаємо через Microsoft Teams. Після активації цей самий обліковий запис використовуватиметься для сервісів Microsoft 365.
           </div>
-
-          <div class="notice">
-            <div class="dot"></div>
-            <div><strong>Перед початком підготуйте:</strong> корпоративну електронну адресу dsst.mil.ua та тимчасовий пароль, які вам надали.</div>
-          </div>
-
-          <p class="mini">Перший вхід виконаємо через Microsoft Teams. Після активації цей самий обліковий запис використовуватиметься для входу в сервіси Microsoft 365.</p>
-
-          <div class="actions">
-            <button class="btn primary" onclick="go('findTeams')">Почати налаштування</button>
-          </div>
-        </section>
-
-        <section class="screen" id="findTeams" data-step="1">
-          <div class="eyebrow">Крок 1 · Знайдіть Teams</div>
-          <h1>Перевіримо, чи встановлено Microsoft Teams</h1>
-          <p class="lead">Спочатку знайдіть програму на комп'ютері. Для цього не потрібно відкривати браузер.</p>
-
-          <div class="checklist">
-            <div class="check">
-              <i>1</i>
-              <div>
-                <strong>Натисніть кнопку «Пуск»</strong>
-                <div class="mini">Вона знаходиться на панелі завдань Windows.</div>
-              </div>
-            </div>
-            <div class="check">
-              <i>2</i>
-              <div>
-                <strong>Почніть вводити: Teams</strong>
-                <div class="mini">Windows покаже знайдені програми.</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="choices">
-            <button class="choice" onclick="setChoice('teams','installed'); go('teamsFirstLogin')">
-              <b>Teams є на комп'ютері</b>
-              <span>Відкриваємо програму та виконуємо перший вхід.</span>
-            </button>
-            <button class="choice" onclick="setChoice('teams','missing'); go('teamsStore')">
-              <b>Teams не знайдено</b>
-              <span>Встановимо його через Microsoft Store.</span>
-            </button>
-          </div>
-
-          <div class="actions">
-            <button class="btn ghost" onclick="go('start')">← Назад</button>
-          </div>
-        </section>
-
-        <section class="screen" id="teamsStore" data-step="1">
-          <div class="eyebrow">Microsoft Teams · Встановлення</div>
-          <h1>Встановіть Teams через Microsoft Store</h1>
-          <p class="lead">Це основний спосіб встановлення, якщо Teams відсутній на комп'ютері.</p>
-
-          <div class="checklist">
-            <div class="check">
-              <i>1</i>
-              <div>
-                <strong>Натисніть «Пуск» і введіть Microsoft Store</strong>
-                <div class="mini">Відкрийте програму Microsoft Store.</div>
-              </div>
-            </div>
-            <div class="check">
-              <i>2</i>
-              <div>
-                <strong>У пошуку Microsoft Store введіть Microsoft Teams</strong>
-                <div class="mini">Виберіть офіційний застосунок Microsoft Teams.</div>
-              </div>
-            </div>
-            <div class="check">
-              <i>3</i>
-              <div>
-                <strong>Натисніть «Встановити»</strong>
-                <div class="mini">Дочекайтеся завершення встановлення та відкрийте Teams.</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="choices">
-            <button class="choice" onclick="go('teamsFirstLogin')">
-              <b>Teams встановлено</b>
-              <span>Переходимо до першого входу.</span>
-            </button>
-            <button class="choice" onclick="go('teamsBrowserInstall')">
-              <b>Не виходить через Microsoft Store</b>
-              <span>Скористатися альтернативним способом через браузер.</span>
-            </button>
-          </div>
-
-          <div class="actions">
-            <button class="btn ghost" onclick="go('findTeams')">← Назад</button>
-          </div>
-        </section>
-
-        <section class="screen" id="teamsBrowserInstall" data-step="1">
-          <div class="eyebrow">Альтернативний спосіб</div>
-          <h1>Завантажте Teams з офіційного сайту Microsoft</h1>
-          <p class="lead">Якщо Microsoft Store не працює, програму можна встановити через браузер.</p>
-
-          <div class="checklist">
-            <div class="check">
-              <i>1</i>
-              <div>
-                <strong>Відкрийте браузер</strong>
-                <div class="mini">Наприклад Microsoft Edge або інший браузер, яким ви користуєтесь.</div>
-              </div>
-            </div>
-            <div class="check">
-              <i>2</i>
-              <div>
-                <strong>У пошуку введіть «Microsoft Teams»</strong>
-                <div class="mini">Відкрийте офіційну сторінку Microsoft.</div>
-              </div>
-            </div>
-            <div class="check">
-              <i>3</i>
-              <div>
-                <strong>Завантажте Teams для Windows</strong>
-                <div class="mini">Після завантаження відкрийте файл встановлення та пройдіть кроки на екрані.</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="notice danger">
-            <div class="dot"></div>
-            <div><strong>Якщо Windows просить права адміністратора</strong> і ви не можете продовжити встановлення — зверніться до адміністратора. Самостійно обходити це обмеження не потрібно.</div>
-          </div>
-
-          <div class="actions">
-            <button class="btn primary" onclick="go('teamsFirstLogin')">Teams встановлено</button>
-            <button class="btn ghost" onclick="go('teamsStore')">← Назад</button>
-          </div>
-        </section>
-
-        <section class="screen" id="teamsFirstLogin" data-step="2">
-          <div class="eyebrow">Крок 2 · Перший вхід</div>
-          <h1>Увійдіть у Teams за допомогою свого mil-акаунта</h1>
-          <p class="lead">Зараз використовуйте саме дані, які ви отримали: корпоративну електронну адресу та тимчасовий пароль.</p>
-
-          <div class="flow">
-            <div class="node"><small>01</small><b>Відкрийте Microsoft Teams</b></div>
-            <div class="node"><small>02</small><b>Введіть корпоративну електронну адресу</b></div>
-            <div class="node"><small>03</small><b>Введіть тимчасовий пароль</b></div>
-            <div class="node"><small>04</small><b>Натисніть «Увійти»</b></div>
-          </div>
-
-          <div class="notice">
-            <div class="dot"></div>
-            <div>На першому вході система попросить підтвердити вашу особу. Це нормальна частина активації облікового запису.</div>
-          </div>
-
-          <div class="actions">
-            <button class="btn primary" onclick="go('verifyPhone')">Я натиснув(-ла) «Увійти»</button>
-            <button class="btn ghost" onclick="go('findTeams')">← Назад</button>
-          </div>
-        </section>
-
-        <section class="screen" id="verifyPhone" data-step="2">
-          <div class="eyebrow">Підтвердження особи</div>
-          <h1>Підтвердьте вхід за допомогою телефону</h1>
-          <p class="lead">Система запропонує спосіб підтвердження. Оберіть отримання повідомлення на номер телефону.</p>
-
-          <div class="checklist">
-            <div class="check">
-              <i>1</i>
-              <div>
-                <strong>Оберіть варіант із номером телефону</strong>
-                <div class="mini">Якщо доступні SMS і телефонний дзвінок, оберіть надсилання повідомлення.</div>
-              </div>
-            </div>
-            <div class="check">
-              <i>2</i>
-              <div>
-                <strong>Натисніть «Надіслати повідомлення»</strong>
-                <div class="mini">Дочекайтеся SMS із кодом підтвердження.</div>
-              </div>
-            </div>
-            <div class="check">
-              <i>3</i>
-              <div>
-                <strong>Введіть код із повідомлення</strong>
-                <div class="mini">Після успішного підтвердження система перейде до зміни пароля.</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="actions">
-            <button class="btn primary" onclick="go('changePassword')">Код підтверджено</button>
-            <button class="btn ghost" onclick="go('teamsFirstLogin')">← Назад</button>
-          </div>
-        </section>
-
-        <section class="screen" id="changePassword" data-step="2">
-          <div class="eyebrow">Створення постійного пароля</div>
-          <h1>Замініть тимчасовий пароль на новий</h1>
-          <p class="lead">Після підтвердження телефону система запропонує створити пароль, яким ви будете користуватися надалі.</p>
-
-          <div class="checklist">
-            <div class="check">
-              <i>1</i>
-              <div>
-                <strong>Поточний пароль</strong>
-                <div class="mini">Введіть тимчасовий пароль, який вам видали.</div>
-              </div>
-            </div>
-            <div class="check">
-              <i>2</i>
-              <div>
-                <strong>Новий пароль</strong>
-                <div class="mini">Придумайте новий пароль.</div>
-              </div>
-            </div>
-            <div class="check">
-              <i>3</i>
-              <div>
-                <strong>Підтвердження нового пароля</strong>
-                <div class="mini">Введіть новий пароль ще раз.</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="notice danger">
-            <div class="dot"></div>
-            <div><strong>Обов'язково запам'ятайте або запишіть новий пароль.</strong> Саме цей пароль ви будете використовувати надалі для входу в корпоративний обліковий запис.</div>
-          </div>
-
-          <div class="actions">
-            <button class="btn primary" onclick="go('deviceSignIn')">Пароль змінено</button>
-            <button class="btn ghost" onclick="go('verifyPhone')">← Назад</button>
-          </div>
-        </section>
-
-
-        <section class="screen" id="deviceSignIn" data-step="2">
-          <div class="eyebrow">Після зміни пароля</div>
-          <h1>Підтвердьте вхід на цьому пристрої</h1>
-          <p class="lead">Після створення нового пароля Microsoft може запропонувати увійти з цим обліковим записом на поточному пристрої.</p>
-
-          <div class="checklist">
-            <div class="check">
-              <i>1</i>
-              <div>
-                <strong>Погодьтеся на вхід на цьому пристрої</strong>
-                <div class="mini">Підтвердьте вхід своїм корпоративним обліковим записом.</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="notice danger">
-            <div class="dot"></div>
-            <div>
-              <strong>Увага: на наступному екрані буде важливий вибір.</strong>
+<div class="actions start-actions">
+<button class="btn primary start-primary" onclick="go('findTeams')" type="button">Почати налаштування <span aria-hidden="true">→</span></button>
+</div>
+</section>
+<section aria-labelledby="findTeams-title" class="screen" data-step="1" id="findTeams">
+<div class="eyebrow">Крок 1 · Знайдіть Teams</div>
+<h1 id="findTeams-title" tabindex="-1">Перевіримо, чи встановлено Microsoft Teams</h1>
+<p class="lead">Спочатку знайдіть програму на комп'ютері. Для цього не потрібно відкривати браузер.</p>
+<div aria-label="Схема пошуку Teams" class="visual-guide">
+<div class="visual-guide-label">Схема дії</div>
+<div class="visual-guide-row">
+<div class="visual-node">
+<div class="visual-icon"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M4 5.2 11 4v7H4V5.2Zm8.2-1.4L20 2.8V11h-7.8V3.8ZM4 12.2h7v7L4 18v-5.8Zm8.2 0H20v8.9l-7.8-1.1v-7.8Z" fill="currentColor"></path></svg></div>
+<div><strong>Пуск</strong><span>Відкрийте пошук Windows</span></div>
+</div>
+<div class="visual-arrow">→</div>
+<div class="visual-node">
+<div class="visual-icon"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="10.5" cy="10.5" fill="none" r="5.5" stroke="currentColor" stroke-width="1.7"></circle><path d="m15 15 4 4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.7"></path></svg></div>
+<div><strong>Введіть Teams</strong><span>Почніть друкувати назву</span></div>
+</div>
+<div class="visual-arrow">→</div>
+<div class="visual-node">
+<div class="visual-icon"><svg aria-hidden="true" viewbox="0 0 24 24"><rect fill="none" height="13" rx="2" stroke="currentColor" stroke-width="1.6" width="9" x="5" y="5.5"></rect><path d="M8 9h4M10 9v6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.6"></path><circle cx="17.5" cy="8" fill="none" r="2" stroke="currentColor" stroke-width="1.5"></circle><path d="M15.8 12h2.7c.8 0 1.5.7 1.5 1.5v2.2" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></div>
+<div><strong>Microsoft Teams</strong><span>Відкрийте знайдену програму</span></div>
+</div>
+</div>
+</div>
+<div class="checklist">
+<div class="check">
+<i>1</i>
+<div>
+<strong>Натисніть кнопку «Пуск»</strong>
+<div class="mini">Вона знаходиться на панелі завдань Windows.</div>
+</div>
+</div>
+<div class="check">
+<i>2</i>
+<div>
+<strong>Почніть вводити: Teams</strong>
+<div class="mini">Windows покаже знайдені програми.</div>
+</div>
+</div>
+</div>
+<div class="choices">
+<button class="choice" onclick="setChoice('teams','installed'); go('teamsFirstLogin')" type="button">
+<b>Teams є на комп'ютері</b>
+<span>Відкриваємо програму та виконуємо перший вхід.</span>
+</button>
+<button class="choice" onclick="setChoice('teams','missing'); go('teamsStore')" type="button">
+<b>Teams не знайдено</b>
+<span>Встановимо його через Microsoft Store.</span>
+</button>
+</div>
+<div class="actions">
+<button class="btn ghost" onclick="go('start')" type="button">← Назад</button>
+</div>
+</section>
+<section aria-labelledby="teamsStore-title" class="screen" data-step="1" id="teamsStore">
+<div class="eyebrow">Microsoft Teams · Встановлення</div>
+<h1 id="teamsStore-title" tabindex="-1">Встановіть Teams через Microsoft Store</h1>
+<p class="lead">Це основний спосіб встановлення, якщо Teams відсутній на комп'ютері.</p>
+<div class="checklist">
+<div class="check">
+<i>1</i>
+<div>
+<strong>Натисніть «Пуск» і введіть Microsoft Store</strong>
+<div class="mini">Відкрийте програму Microsoft Store.</div>
+</div>
+</div>
+<div class="check">
+<i>2</i>
+<div>
+<strong>У пошуку Microsoft Store введіть Microsoft Teams</strong>
+<div class="mini">Виберіть офіційний застосунок Microsoft Teams.</div>
+</div>
+</div>
+<div class="check">
+<i>3</i>
+<div>
+<strong>Натисніть «Встановити»</strong>
+<div class="mini">Дочекайтеся завершення встановлення та відкрийте Teams.</div>
+</div>
+</div>
+</div>
+<div class="choices">
+<button class="choice" onclick="setChoice('teams_install','store'); go('teamsFirstLogin')" type="button">
+<b>Teams встановлено</b>
+<span>Переходимо до першого входу.</span>
+</button>
+<button class="choice" onclick="setChoice('teams_install','browser'); go('teamsBrowserInstall')" type="button">
+<b>Не виходить через Microsoft Store</b>
+<span>Скористатися альтернативним способом через браузер.</span>
+</button>
+</div>
+<div class="actions">
+<button class="btn ghost" onclick="go('findTeams')" type="button">← Назад</button>
+</div>
+</section>
+<section aria-labelledby="teamsBrowserInstall-title" class="screen" data-step="1" id="teamsBrowserInstall">
+<div class="eyebrow">Альтернативний спосіб</div>
+<h1 id="teamsBrowserInstall-title" tabindex="-1">Завантажте Teams з офіційного сайту Microsoft</h1>
+<p class="lead">Якщо Microsoft Store не працює, програму можна встановити через браузер.</p>
+<div class="checklist">
+<div class="check">
+<i>1</i>
+<div>
+<strong>Відкрийте браузер</strong>
+<div class="mini">Наприклад Microsoft Edge або інший браузер, яким ви користуєтесь.</div>
+</div>
+</div>
+<div class="check">
+<i>2</i>
+<div>
+<strong>У пошуку введіть «Microsoft Teams»</strong>
+<div class="mini">Відкрийте офіційну сторінку Microsoft.</div>
+</div>
+</div>
+<div class="check">
+<i>3</i>
+<div>
+<strong>Завантажте Teams для Windows</strong>
+<div class="mini">Після завантаження відкрийте файл встановлення та пройдіть кроки на екрані.</div>
+</div>
+</div>
+</div>
+<div class="notice danger">
+<div class="dot"></div>
+<div><strong>Якщо Windows просить права адміністратора</strong> і ви не можете продовжити встановлення — зверніться до адміністратора. Самостійно обходити це обмеження не потрібно.</div>
+</div>
+<div class="actions">
+<button class="btn primary" onclick="setChoice('teams_install','browser'); go('teamsFirstLogin')" type="button">Teams встановлено</button>
+<button class="btn ghost" onclick="go('teamsStore')" type="button">← Назад</button>
+</div>
+</section>
+<section aria-labelledby="teamsFirstLogin-title" class="screen" data-step="2" id="teamsFirstLogin">
+<div class="eyebrow">Крок 2 · Перший вхід</div>
+<h1 id="teamsFirstLogin-title" tabindex="-1">Увійдіть у Teams за допомогою свого mil-акаунта</h1>
+<p class="lead">Зараз використовуйте саме дані, які ви отримали: корпоративну електронну адресу та тимчасовий пароль.</p>
+<div class="flow">
+<div class="node"><small>01</small><b>Відкрийте Microsoft Teams</b></div>
+<div class="node"><small>02</small><b>Введіть корпоративну електронну адресу</b></div>
+<div class="node"><small>03</small><b>Введіть тимчасовий пароль</b></div>
+<div class="node"><small>04</small><b>Натисніть «Увійти»</b></div>
+</div>
+<div class="notice">
+<div class="dot"></div>
+<div>На першому вході система попросить підтвердити вашу особу. Це нормальна частина активації облікового запису.</div>
+</div>
+<div class="actions">
+<button class="btn primary" onclick="go('verifyPhone')" type="button">Я натиснув(-ла) «Увійти»</button>
+<button class="btn ghost" onclick="go('findTeams')" type="button">← Назад</button>
+</div>
+</section>
+<section aria-labelledby="verifyPhone-title" class="screen" data-step="2" id="verifyPhone">
+<div class="eyebrow">Підтвердження особи</div>
+<h1 id="verifyPhone-title" tabindex="-1">Підтвердьте вхід за допомогою телефону</h1>
+<p class="lead">Система запропонує спосіб підтвердження. Оберіть отримання повідомлення на номер телефону.</p>
+<div aria-label="Схема підтвердження через SMS" class="visual-guide">
+<div class="visual-guide-label">Схема підтвердження</div>
+<div class="visual-guide-row">
+<div class="visual-node">
+<div class="visual-icon"><svg aria-hidden="true" viewbox="0 0 24 24"><rect fill="none" height="17" rx="2" stroke="currentColor" stroke-width="1.6" width="10" x="7" y="3.5"></rect><path d="M10 6h4M11 18h2" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.6"></path></svg></div>
+<div><strong>Отримайте SMS</strong><span>На вибраний номер телефону</span></div>
+</div>
+<div class="visual-arrow">→</div>
+<div class="visual-node">
+<div>
+<strong>Введіть код</strong>
+<div aria-hidden="true" class="visual-code">
+<span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="checklist">
+<div class="check">
+<i>1</i>
+<div>
+<strong>Оберіть варіант із номером телефону</strong>
+<div class="mini">Якщо доступні SMS і телефонний дзвінок, оберіть надсилання повідомлення.</div>
+</div>
+</div>
+<div class="check">
+<i>2</i>
+<div>
+<strong>Натисніть «Надіслати повідомлення»</strong>
+<div class="mini">Дочекайтеся SMS із кодом підтвердження.</div>
+</div>
+</div>
+<div class="check">
+<i>3</i>
+<div>
+<strong>Введіть код із повідомлення</strong>
+<div class="mini">Після успішного підтвердження система перейде до зміни пароля.</div>
+</div>
+</div>
+</div>
+<div class="actions">
+<button class="btn primary" onclick="go('changePassword')" type="button">Код підтверджено</button>
+<button class="btn ghost" onclick="go('teamsFirstLogin')" type="button">← Назад</button>
+</div>
+</section>
+<section aria-labelledby="changePassword-title" class="screen" data-step="2" id="changePassword">
+<div class="eyebrow">Створення постійного пароля</div>
+<h1 id="changePassword-title" tabindex="-1">Замініть тимчасовий пароль на новий</h1>
+<p class="lead">Після підтвердження телефону система запропонує створити пароль, яким ви будете користуватися надалі.</p>
+<div class="checklist">
+<div class="check">
+<i>1</i>
+<div>
+<strong>Поточний пароль</strong>
+<div class="mini">Введіть тимчасовий пароль, який вам видали.</div>
+</div>
+</div>
+<div class="check">
+<i>2</i>
+<div>
+<strong>Новий пароль</strong>
+<div class="mini">Придумайте новий пароль.</div>
+</div>
+</div>
+<div class="check">
+<i>3</i>
+<div>
+<strong>Підтвердження нового пароля</strong>
+<div class="mini">Введіть новий пароль ще раз.</div>
+</div>
+</div>
+</div>
+<div class="notice danger">
+<div class="dot"></div>
+<div><strong>Обов'язково запам'ятайте або запишіть новий пароль.</strong> Саме цей пароль ви будете використовувати надалі для входу в корпоративний обліковий запис.</div>
+</div>
+<div class="actions">
+<button class="btn primary" onclick="go('deviceSignIn')" type="button">Пароль змінено</button>
+<button class="btn ghost" onclick="go('verifyPhone')" type="button">← Назад</button>
+</div>
+</section>
+<section aria-labelledby="deviceSignIn-title" class="screen" data-step="2" id="deviceSignIn">
+<div class="eyebrow">Після зміни пароля</div>
+<h1 id="deviceSignIn-title" tabindex="-1">Підтвердьте вхід на цьому пристрої</h1>
+<p class="lead">Після створення нового пароля Microsoft може запропонувати увійти з цим обліковим записом на поточному пристрої.</p>
+<div class="checklist">
+<div class="check">
+<i>1</i>
+<div>
+<strong>Погодьтеся на вхід на цьому пристрої</strong>
+<div class="mini">Підтвердьте вхід своїм корпоративним обліковим записом.</div>
+</div>
+</div>
+</div>
+<div class="notice danger">
+<div class="dot"></div>
+<div>
+<strong>Увага: на наступному екрані буде важливий вибір.</strong>
               Не поспішайте натискати «Далі» — спочатку прочитайте підказку на наступному кроці.
             </div>
-          </div>
-
-          <div class="actions">
-            <button class="btn primary" onclick="go('deviceManagement')">Далі</button>
-            <button class="btn ghost" onclick="go('changePassword')">← Назад</button>
-          </div>
-        </section>
-
-        <section class="screen" id="deviceManagement" data-step="2">
-          <div class="eyebrow">Важливий крок</div>
-          <h1>Не вмикайте керування пристроєм організацією</h1>
-          <p class="lead">Якщо Microsoft запитає, чи дозволити організації керувати цим пристроєм, цю функцію вмикати не потрібно.</p>
-
-          <div class="notice danger">
-            <div class="dot"></div>
-            <div>
-              <strong>Оберіть варіант без керування пристроєм.</strong>
+</div>
+<div class="actions">
+<button class="btn primary" onclick="go('deviceManagement')" type="button">Далі</button>
+<button class="btn ghost" onclick="go('changePassword')" type="button">← Назад</button>
+</div>
+</section>
+<section aria-labelledby="deviceManagement-title" class="screen" data-step="2" id="deviceManagement">
+<div class="eyebrow">Важливий крок</div>
+<h1 id="deviceManagement-title" tabindex="-1">Не вмикайте керування пристроєм організацією</h1>
+<p class="lead">Якщо Microsoft запитає, чи дозволити організації керувати цим пристроєм, цю функцію вмикати не потрібно.</p>
+<div aria-label="Схема правильного вибору" class="visual-guide">
+<div class="visual-guide-label">Правильний вибір</div>
+<div class="visual-decision">
+<div class="visual-decision-card good">
+<div class="visual-decision-mark">✓</div>
+<div><strong>Увійти в корпоративний акаунт</strong><span>Так — продовжуємо роботу з mil-акаунтом.</span></div>
+</div>
+<div class="visual-decision-card bad">
+<div class="visual-decision-mark">×</div>
+<div><strong>Керування пристроєм організацією</strong><span>Ні — цю опцію не вмикаємо.</span></div>
+</div>
+</div>
+</div>
+<div class="notice danger">
+<div class="dot"></div>
+<div>
+<strong>Оберіть варіант без керування пристроєм.</strong>
               Якщо бачите перемикач або прапорець на кшталт «Дозволити організації керувати цим пристроєм» — не вмикайте його.
             </div>
-          </div>
-
-          <div class="checklist">
-            <div class="check">
-              <i>✓</i>
-              <div>
-                <strong>Увійти в обліковий запис — так</strong>
-                <div class="mini">Продовжуємо користуватися корпоративним обліковим записом у Teams.</div>
-              </div>
-            </div>
-            <div class="check">
-              <i>×</i>
-              <div>
-                <strong>Дозволити організації керувати пристроєм — ні</strong>
-                <div class="mini">Не вмикайте цю опцію, якщо вона з'являється.</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="actions">
-            <button class="btn primary" onclick="complete(1); complete(2); go('teamsReady')">Підтвердити</button>
-            <button class="btn ghost" onclick="go('deviceSignIn')">← Назад</button>
-          </div>
-        </section>
-
-        <section class="screen" id="teamsReady" data-step="2">
-          <div class="eyebrow">Teams готовий до роботи</div>
-          <h1>Коротко познайомимося з Microsoft Teams</h1>
-          <p class="lead">Teams — це ваш корпоративний месенджер. Тут ви можете спілкуватися з колегами, працювати в чатах і користуватися доступними для вашого облікового запису застосунками.</p>
-
-          <div class="checklist">
-            <div class="check">
-              <i>1</i>
-              <div>
-                <strong>Основна навігація знаходиться зліва</strong>
-                <div class="mini">На лівій панелі розміщені основні розділи Teams та доступні застосунки.</div>
-              </div>
-            </div>
-            <div class="check">
-              <i>2</i>
-              <div>
-                <strong>Чати та спілкування з колегами</strong>
-                <div class="mini">Використовуйте Teams як корпоративний месенджер для робочого спілкування.</div>
-              </div>
-            </div>
-            <div class="check">
-              <i>3</i>
-              <div>
-                <strong>Додаткові робочі інструменти</strong>
-                <div class="mini">На наступному кроці окремо покажемо, як відкрити OneDrive і працювати з файлами.</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="actions">
-            <button class="btn primary" onclick="go('findOneDrive')">Перейти до OneDrive</button>
-            <button class="btn ghost" onclick="go('deviceManagement')">← Назад</button>
-          </div>
-        </section>
-
-        <section class="screen" id="findOneDrive" data-step="3">
-          <div class="eyebrow">Крок 3 · OneDrive</div>
-          <h1>Відкрийте OneDrive у Teams</h1>
-          <p class="lead">Після входу подивіться на ліву панель Teams і знайдіть OneDrive — його іконка виглядає як хмара. Якщо OneDrive не відображається на панелі, відкрийте список додаткових застосунків і виберіть його там.</p>
-
-          <div class="checklist">
-            <div class="check">
-              <i>1</i>
-              <div>
-                <strong>Перевірте ліву панель Teams</strong>
-                <div class="mini">Там розміщені основні розділи та застосунки.</div>
-              </div>
-            </div>
-            <div class="check">
-              <i>2</i>
-              <div>
-                <strong>Відкрийте OneDrive</strong>
-                <div class="mini">Відкриється ваше корпоративне сховище робочих файлів.</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="notice">
-            <div class="dot"></div>
-            <div>Якщо OneDrive не відображається на лівій панелі, відкрийте список додаткових застосунків Teams і виберіть OneDrive там.</div>
-          </div>
-
-          <div class="actions">
-            <button class="btn primary" onclick="go('oneDriveIntro')">OneDrive відкрито</button>
-            <button class="btn ghost" onclick="go('teamsReady')">← Назад</button>
-          </div>
-        </section>
-
-        <section class="screen" id="oneDriveIntro" data-step="3">
-          <div class="eyebrow">OneDrive · Основи</div>
-          <h1>Новий OneDrive спочатку може бути порожнім — це нормально</h1>
-          <p class="lead">Це ваше робоче сховище. З часом у ньому з’являться створені вами папки та робочі файли.</p>
-
-          <div class="mock-files">
-            <div class="mock-files-head">
-              <span>Мої файли</span>
-              <span>Приклад структури</span>
-            </div>
-            <div class="mock-file">
-              <div class="ico"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.75 6.5A1.75 1.75 0 0 1 5.5 4.75h4.12c.46 0 .9.18 1.22.5l1.1 1.1c.14.14.33.22.53.22h6.03a1.75 1.75 0 0 1 1.75 1.75v8.18a1.75 1.75 0 0 1-1.75 1.75h-13a1.75 1.75 0 0 1-1.75-1.75V6.5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
-              <div><strong>Документи</strong><span>Робоча папка</span></div>
-              <span class="status-tag">Папка</span>
-            </div>
-            <div class="mock-file">
-              <div class="ico"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.75 6.5A1.75 1.75 0 0 1 5.5 4.75h4.12c.46 0 .9.18 1.22.5l1.1 1.1c.14.14.33.22.53.22h6.03a1.75 1.75 0 0 1 1.75 1.75v8.18a1.75 1.75 0 0 1-1.75 1.75h-13a1.75 1.75 0 0 1-1.75-1.75V6.5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
-              <div><strong>Звіти</strong><span>Робоча папка</span></div>
-              <span class="status-tag">Папка</span>
-            </div>
-            <div class="mock-file">
-              <div class="ico"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.75h6.25L18 8.5v11.75H7V3.75Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M13 3.75V9h5M9.5 13h6M9.5 16h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
-              <div><strong>Звіт_за_вересень.xlsx</strong><span>Робочий файл</span></div>
-              <span class="status-tag">Файл</span>
-            </div>
-          </div>
-
-          <div class="analogy">
-            <div class="analogy-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.75 6.5A1.75 1.75 0 0 1 5.5 4.75h4.12c.46 0 .9.18 1.22.5l1.1 1.1c.14.14.33.22.53.22h6.03a1.75 1.75 0 0 1 1.75 1.75v8.18a1.75 1.75 0 0 1-1.75 1.75h-13a1.75 1.75 0 0 1-1.75-1.75V6.5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
-            <div>
-              <strong>Працюйте так само, як зі звичайними папками на комп'ютері</strong>
-              <p>Створюйте зрозумілі папки — наприклад «Документи», «Звіти», «Проєкти» — і зберігайте всередині відповідні робочі файли.</p>
-            </div>
-          </div>
-
-          <div class="actions">
-            <button class="btn primary" onclick="go('oneDriveFiles')">Додати файли</button>
-            <button class="btn ghost" onclick="go('findOneDrive')">← Назад</button>
-          </div>
-        </section>
-
-        <section class="screen" id="oneDriveFiles" data-step="3">
-          <div class="eyebrow">OneDrive · Папки та файли</div>
-          <h1>Створюйте папки та завантажуйте робочі файли</h1>
-          <p class="lead">Усе, що ви зберігаєте в OneDrive, доступне через ваш корпоративний обліковий запис.</p>
-
-          <div class="checklist">
-            <div class="check">
-              <i>1</i>
-              <div>
-                <strong>Створити папку</strong>
-                <div class="mini">Оберіть створення нового елемента, виберіть «Папка», дайте їй зрозумілу назву та відкрийте її.</div>
-              </div>
-            </div>
-            <div class="check">
-              <i>2</i>
-              <div>
-                <strong>Завантажити файл або папку</strong>
-                <div class="mini">Оберіть завантаження та виберіть потрібний файл або папку на комп'ютері.</div>
-              </div>
-            </div>
-            <div class="check">
-              <i>3</i>
-              <div>
-                <strong>Альтернативний спосіб — перетягування</strong>
-                <div class="mini">Можна просто перетягнути файл або цілу папку з Провідника Windows прямо у вікно OneDrive. Після цього почнеться завантаження.</div>
-              </div>
-            </div>
-            <div class="check">
-              <i>4</i>
-              <div>
-                <strong>Перевірити, що дані з'явилися у списку</strong>
-                <div class="mini">Після завантаження файл або папка буде доступна у вашому OneDrive.</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="notice">
-            <div class="dot"></div>
-            <div><strong>Важливо:</strong> файл зберігається у вашому корпоративному OneDrive. Після входу в той самий mil-акаунт файл можна відкрити з будь-якого пристрою.</div>
-          </div>
-
-          <div class="actions">
-            <button class="btn primary" onclick="go('oneDriveEverywhere')">Доступ з інших пристроїв</button>
-            <button class="btn ghost" onclick="go('oneDriveIntro')">← Назад</button>
-          </div>
-        </section>
-
-        <section class="screen" id="oneDriveEverywhere" data-step="3">
-          <div class="eyebrow">OneDrive · Доступ до файлів</div>
-          <h1>Підключення OneDrive до комп’ютера — необов’язкове</h1>
-          <p class="lead">Ви вже можете користуватися OneDrive через Teams і відкривати свої файли після входу в mil-акаунт на будь-якому пристрої. Додатково OneDrive можна підключити безпосередньо до Windows.</p>
-
-          <div class="analogy">
-            <div class="analogy-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.7 8.2A7 7 0 0 0 6.4 6.5L4.8 8.1M5.3 15.8a7 7 0 0 0 12.3 1.7l1.6-1.6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M4.6 4.9v3.4H8M19.4 19.1v-3.4H16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <div>
-              <strong>Що дає підключення OneDrive до ПК</strong>
-              <p>Ваші робочі файли з’являться у Провіднику Windows як звичайна папка. Файли можна буде перетягувати, відкривати та зберігати так само, як інші файли на комп’ютері, а зміни синхронізуватимуться з OneDrive.</p>
-            </div>
-          </div>
-
-          <div class="checklist">
-            <div class="check">
-              <i>1</i>
-              <div>
-                <strong>Швидкий доступ через Провідник Windows</strong>
-                <div class="mini">Не потрібно щоразу відкривати Teams, щоб знайти робочий файл.</div>
-              </div>
-            </div>
-            <div class="check">
-              <i>2</i>
-              <div>
-                <strong>Автоматична синхронізація змін</strong>
-                <div class="mini">Файли у папці OneDrive синхронізуються з вашим корпоративним сховищем.</div>
-              </div>
-            </div>
-            <div class="check">
-              <i>3</i>
-              <div>
-                <strong>Можливість зберігати потрібні файли локально</strong>
-                <div class="mini">За потреби окремі файли або папки можна зробити доступними на комп’ютері навіть без підключення до мережі.</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="choices">
-            <button class="choice" onclick="setChoice('local_onedrive','yes'); go('localOneDriveStart')">
-              <b>Підключити OneDrive до цього ПК</b>
-              <span>Налаштуємо папку OneDrive у Провіднику Windows.</span>
-            </button>
-            <button class="choice" onclick="setChoice('local_onedrive','skip'); complete(3); go('security')">
-              <b>Пропустити цей крок</b>
-              <span>OneDrive залишиться доступним через Teams та ваш mil-акаунт.</span>
-            </button>
-          </div>
-
-          <div class="actions">
-            <button class="btn ghost" onclick="go('oneDriveFiles')">← Назад</button>
-          </div>
-        </section>
-
-        <section class="screen" id="localOneDriveStart" data-step="3">
-          <div class="eyebrow">Необов’язково · OneDrive на комп’ютері</div>
-          <h1>Підключимо OneDrive до Windows</h1>
-          <p class="lead">Після налаштування у Провіднику Windows з’явиться папка OneDrive, яка синхронізуватиметься з вашим корпоративним сховищем.</p>
-
-          <div class="checklist">
-            <div class="check">
-              <i>1</i>
-              <div>
-                <strong>Натисніть «Пуск»</strong>
-                <div class="mini">Почніть вводити слово OneDrive.</div>
-              </div>
-            </div>
-            <div class="check">
-              <i>2</i>
-              <div>
-                <strong>Відкрийте програму Microsoft OneDrive</strong>
-                <div class="mini">З'явиться вікно входу до OneDrive.</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="choices">
-            <button class="choice" onclick="go('localOneDriveLogin')">
-              <b>OneDrive відкрився</b>
-              <span>Переходимо до підключення корпоративного облікового запису.</span>
-            </button>
-            <button class="choice" onclick="go('localOneDriveMissing')">
-              <b>OneDrive не знайдено</b>
-              <span>Що робити, якщо OneDrive не знайдено.</span>
-            </button>
-          </div>
-
-          <div class="actions">
-            <button class="btn secondary" onclick="setChoice('local_onedrive','skip'); complete(3); go('security')">Пропустити підключення до ПК</button>
-            <button class="btn ghost" onclick="go('oneDriveEverywhere')">← Назад</button>
-          </div>
-        </section>
-
-        <section class="screen" id="localOneDriveMissing" data-step="3">
-          <div class="eyebrow">OneDrive не знайдено</div>
-          <h1>Якщо програми OneDrive немає</h1>
-          <p class="lead">На більшості робочих комп'ютерів Windows OneDrive уже встановлено. Якщо пошук його не знаходить, не потрібно самостійно змінювати системні налаштування.</p>
-
-          <div class="notice danger">
-            <div class="dot"></div>
-            <div>Зверніться до адміністратора або відповідальної особи, щоб перевірити встановлення OneDrive на вашому комп'ютері.</div>
-          </div>
-
-          <div class="actions">
-            <button class="btn secondary" onclick="go('localOneDriveStart')">Перевірити ще раз</button>
-            <button class="btn ghost" onclick="go('oneDriveEverywhere')">← Назад</button>
-          </div>
-        </section>
-
-        <section class="screen" id="localOneDriveLogin" data-step="3">
-          <div class="eyebrow">OneDrive · Підключення до ПК</div>
-          <h1>OneDrive може автоматично запропонувати ваш mil-акаунт</h1>
-          <p class="lead">Якщо під час першого входу ви підтвердили використання корпоративного облікового запису на цьому пристрої, Windows може вже мати дані вашого mil-акаунта.</p>
-
-          <div class="notice">
-            <div class="dot"></div>
-            <div><strong>Якщо OneDrive одразу показує ваш mil-акаунт</strong> — просто підтвердьте його та продовжуйте. Повторно вводити пошту і пароль не потрібно.</div>
-          </div>
-
-          <div class="checklist">
-            <div class="check">
-              <i>1</i>
-              <div>
-                <strong>Перевірте, який обліковий запис пропонує OneDrive</strong>
-                <div class="mini">Якщо бачите свою корпоративну адресу — підтвердьте її.</div>
-              </div>
-            </div>
-            <div class="check">
-              <i>2</i>
-              <div>
-                <strong>Якщо обліковий запис не з’явився автоматично</strong>
-                <div class="mini">Введіть корпоративну пошту та новий пароль, який ви створили під час першого входу.</div>
-              </div>
-            </div>
-            <div class="check">
-              <i>3</i>
-              <div>
-                <strong>Пройдіть стандартне налаштування OneDrive</strong>
-                <div class="mini">Коли OneDrive запропонує розташування папки, для звичайного користувача достатньо залишити запропонований варіант і продовжити.</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="actions">
-            <button class="btn primary" onclick="go('localOneDriveReady')">OneDrive налаштовано</button>
-            <button class="btn ghost" onclick="go('localOneDriveStart')">← Назад</button>
-          </div>
-        </section>
-
-        <section class="screen" id="localOneDriveReady" data-step="3">
-          <div class="eyebrow">OneDrive · Провідник Windows</div>
-          <h1>Тепер OneDrive доступний у Провіднику Windows</h1>
-          <p class="lead">У Провіднику Windows з’явиться папка OneDrive вашої організації. Її вміст синхронізується з корпоративним OneDrive.</p>
-
-          <div class="sync-pair">
-            <div class="sync-box">
-              <small>На комп'ютері</small>
-              <strong>Папка OneDrive у Провіднику Windows</strong>
-            </div>
-            <div class="sync-arrow">⇄</div>
-            <div class="sync-box">
-              <small>У хмарі</small>
-              <strong>Ваш корпоративний OneDrive</strong>
-            </div>
-          </div>
-
-          <div class="analogy">
-            <div class="analogy-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.7 8.2A7 7 0 0 0 6.4 6.5L4.8 8.1M5.3 15.8a7 7 0 0 0 12.3 1.7l1.6-1.6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M4.6 4.9v3.4H8M19.4 19.1v-3.4H16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <div>
-              <strong>Зміни синхронізуються в обидві сторони</strong>
-              <p>Додали файл у папку OneDrive на ПК — він з'явиться у хмарі. Змінили файл у OneDrive — зміна синхронізується на комп'ютер.</p>
-            </div>
-          </div>
-
-          <div class="actions">
-            <button class="btn primary" onclick="go('localFiles')">Зробити файли доступними локально</button>
-            <button class="btn ghost" onclick="go('localOneDriveLogin')">← Назад</button>
-          </div>
-        </section>
-
-        <section class="screen" id="localFiles" data-step="3">
-          <div class="eyebrow">OneDrive · Локальні копії</div>
-          <h1>Як зробити, щоб потрібні файли були також на цьому ПК</h1>
-          <p class="lead">OneDrive може показувати файли у Провіднику, навіть якщо деякі з них зберігаються тільки у хмарі. Якщо файл має бути фізично завантажений на комп'ютер, це можна вказати окремо.</p>
-
-          <div class="icon-guide">
-            <div class="icon-row">
-              <div class="symbol"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.6 18.25h9.1a4.05 4.05 0 0 0 .42-8.08A5.55 5.55 0 0 0 6.7 8.65a4.8 4.8 0 0 0 .9 9.6Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-              <div>
-                <strong>Хмаринка</strong>
-                <p>Файл є у OneDrive, але зараз зберігається тільки онлайн. Для відкриття потрібне підключення до мережі.</p>
-              </div>
-            </div>
-            <div class="icon-row">
-              <div class="symbol"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7.2 12.3 3.05 3.05 6.55-7.1" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-              <div>
-                <strong>Зелена позначка</strong>
-                <p>Файл уже завантажений на цей комп’ютер і доступний локально.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="checklist">
-            <div class="check">
-              <i>1</i>
-              <div>
-                <strong>Натисніть правою кнопкою на потрібній папці або файлі OneDrive</strong>
-                <div class="mini">Робіть це у Провіднику Windows.</div>
-              </div>
-            </div>
-            <div class="check">
-              <i>2</i>
-              <div>
-                <strong>Оберіть «Завжди зберігати на цьому пристрої»</strong>
-                <div class="mini">Після завантаження ця папка або файл матиме локальну копію на ПК та продовжить синхронізуватися з OneDrive.</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="notice">
-            <div class="dot"></div>
-            <div><strong>Коротко:</strong> OneDrive у Teams і папка OneDrive на ПК дають доступ до тих самих робочих файлів. Синхронізація підтримує їх актуальними.</div>
-          </div>
-
-          <div class="actions">
-            <button class="btn primary" onclick="complete(3); go('security')">Далі</button>
-            <button class="btn ghost" onclick="go('localOneDriveReady')">← Назад</button>
-          </div>
-        </section>
-
-        <section class="screen" id="security" data-step="4">
-          <div class="eyebrow">Крок 4 · Інформаційна безпека</div>
-          <h1>Перед початком роботи ознайомтеся з правилами</h1>
-          <p class="lead">dsst.mil.ua — корпоративне середовище МОУ. Використовуйте його для роботи з матеріалами, які дозволено зберігати в цьому середовищі.</p>
-
-          <div class="checklist">
-            <div class="check">
-              <i>✓</i>
-              <div>
-                <strong>Використовуйте лише свій обліковий запис</strong>
-                <div class="mini">Не передавайте пароль або доступ до свого mil-акаунта іншим людям.</div>
-              </div>
-            </div>
-
-            <div class="check">
-              <i>✓</i>
-              <div>
-                <strong>Зберігайте лише матеріали без грифів ДСК і вище</strong>
-                <div class="mini">OneDrive у цьому середовищі призначений для робочих матеріалів, які не мають відповідних обмежень доступу.</div>
-              </div>
-            </div>
-
-            <div class="check">
-              <i>!</i>
-              <div>
-                <strong>Не зберігайте інформацію з обмеженим доступом</strong>
-                <div class="mini">До цього належать документи з грифом ДСК і вище, матеріали з державною таємницею та інші категорії інформації з обмеженим доступом.</div>
-              </div>
-            </div>
-
-            <div class="check">
-              <i>!</i>
-              <div>
-                <strong>Не переносіть службові файли в інші хмарні сервіси</strong>
-                <div class="mini">Для службових матеріалів не використовуйте Google Drive, Dropbox, особистий OneDrive та інші сторонні хмарні сховища.</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="notice danger">
-            <div class="dot"></div>
-            <div><strong>Важливо:</strong> якщо ви не впевнені, чи можна зберігати конкретний файл у dsst.mil.ua, не завантажуйте його до уточнення правил.</div>
-          </div>
-
-          <div class="actions">
-            <button class="btn primary" onclick="complete(4); go('finish')">Завершити налаштування</button>
-            <button class="btn ghost" onclick="go('oneDriveEverywhere')">← Назад</button>
-          </div>
-        </section>
-
-        <section class="screen" id="finish" data-step="4">
-          <div class="eyebrow">Налаштування завершено</div>
-          <h1>Вітаємо! Ваш mil-акаунт готовий до роботи</h1>
-          <p class="lead">Ви успішно виконали перший вхід, змінили тимчасовий пароль, налаштували Teams і ознайомилися з роботою в OneDrive.</p>
-
-          <div class="info-grid">
-            <div class="info">
-              <small>Обліковий запис</small>
-              <strong>Активовано</strong>
-            </div>
-            <div class="info">
-              <small>Microsoft Teams</small>
-              <strong>Готовий до роботи</strong>
-            </div>
-            <div class="info">
-              <small>OneDrive</small>
-              <strong>Готовий до роботи</strong>
-            </div>
-          </div>
-
-          <div class="notice">
-            <div class="dot"></div>
-            <div>Тепер ви можете користуватися корпоративним Teams для спілкування та OneDrive для зберігання робочих файлів. Якщо ви підключили OneDrive до ПК, файли також синхронізуватимуться з папкою OneDrive у Windows.</div>
-          </div>
-
-          <div class="actions">
-            <button class="btn secondary" onclick="restart()">Пройти інструкцію ще раз</button>
-          </div>
-        </section>
-      </div></main>
-
-      <aside class="help">
-        <div class="help-label">Підказки</div>
-        <div class="help-block">
-          <strong>OneDrive = ваші робочі файли</strong>
-          <p>У Teams відкрийте OneDrive через ліву панель або список застосунків. На одному з кроків ви побачите підказку, як виглядає його іконка.</p>
-        </div>
-        <details>
-          <summary>OneDrive спочатку порожній</summary>
-          <p>Для нового OneDrive це нормально. Створіть власні робочі папки та поступово додавайте файли.</p>
-        </details>
-        <details>
-          <summary>Де файли на комп'ютері?</summary>
-          <p>Після входу в програму OneDrive вони з'являться у Провіднику Windows в окремій папці OneDrive.</p>
-        </details>
-        <details>
-          <summary>Що означає хмаринка біля файлу?</summary>
-          <p>Такий файл зараз зберігається онлайн. Для постійної локальної копії використайте «Завжди зберігати на цьому пристрої».</p>
-        </details>
-      </aside>
-    </div>
-  </div>
-
-
-  <div class="support-note" id="supportNote" aria-live="polite">
-    <strong>Потрібна допомога?</strong>
-    <p id="supportText">Ми підготуємо повідомлення з назвою поточного кроку.</p>
-    <a class="support-link" id="supportLink" href="#" target="_blank" rel="noopener noreferrer">
-      Відкрити чат у WhatsApp
-    </a>
-  </div>
-
-  <button class="support-fab" id="supportFab" type="button" onclick="openWhatsAppSupport()">
-    <span class="support-dot"></span>
-    <span>Потрібна допомога?</span>
-  </button>
-
+</div>
+<div class="checklist">
+<div class="check">
+<i>✓</i>
+<div>
+<strong>Увійти в обліковий запис — так</strong>
+<div class="mini">Продовжуємо користуватися корпоративним обліковим записом у Teams.</div>
+</div>
+</div>
+<div class="check">
+<i>×</i>
+<div>
+<strong>Дозволити організації керувати пристроєм — ні</strong>
+<div class="mini">Не вмикайте цю опцію, якщо вона з'являється.</div>
+</div>
+</div>
+</div>
+<div class="actions">
+<button class="btn primary" onclick="complete(1); complete(2); go('teamsReady')" type="button">Підтвердити</button>
+<button class="btn ghost" onclick="go('deviceSignIn')" type="button">← Назад</button>
+</div>
+</section>
+<section aria-labelledby="teamsReady-title" class="screen" data-step="2" id="teamsReady">
+<div class="eyebrow">Teams готовий до роботи</div>
+<h1 id="teamsReady-title" tabindex="-1">Коротко познайомимося з Microsoft Teams</h1>
+<p class="lead">Teams — це ваш корпоративний месенджер. Тут ви можете спілкуватися з колегами, працювати в чатах і користуватися доступними для вашого облікового запису застосунками.</p>
+<div class="checklist">
+<div class="check">
+<i>1</i>
+<div>
+<strong>Основна навігація знаходиться зліва</strong>
+<div class="mini">На лівій панелі розміщені основні розділи Teams та доступні застосунки.</div>
+</div>
+</div>
+<div class="check">
+<i>2</i>
+<div>
+<strong>Чати та спілкування з колегами</strong>
+<div class="mini">Використовуйте Teams як корпоративний месенджер для робочого спілкування.</div>
+</div>
+</div>
+<div class="check">
+<i>3</i>
+<div>
+<strong>Додаткові робочі інструменти</strong>
+<div class="mini">На наступному кроці окремо покажемо, як відкрити OneDrive і працювати з файлами.</div>
+</div>
+</div>
+</div>
+<div class="actions">
+<button class="btn primary" onclick="go('findOneDrive')" type="button">Перейти до OneDrive</button>
+<button class="btn ghost" onclick="go('deviceManagement')" type="button">← Назад</button>
+</div>
+</section>
+<section aria-labelledby="findOneDrive-title" class="screen" data-step="3" id="findOneDrive">
+<div class="eyebrow">Крок 3 · OneDrive</div>
+<h1 id="findOneDrive-title" tabindex="-1">Відкрийте OneDrive у Teams</h1>
+<p class="lead">Після входу знайдіть OneDrive на лівій панелі Teams. У вашій версії це <strong>сіра контурна іконка хмарки</strong>. Якщо її немає на панелі, відкрийте список додаткових застосунків.</p>
+<div aria-label="Орієнтир: OneDrive позначений сірою хмаркою" class="onedrive-inline-hint">
+<svg aria-hidden="true" viewbox="0 0 24 24">
+<path d="M7.2 18.1h9.4a3.7 3.7 0 0 0 .4-7.38A5.15 5.15 0 0 0 7.2 9.3a4.4 4.4 0 0 0 0 8.8Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65"></path>
+</svg>
+<span><strong>OneDrive</strong> — шукайте сіру хмарку</span>
+</div>
+<div class="checklist">
+<div class="check">
+<i>1</i>
+<div>
+<strong>Перевірте ліву панель Teams</strong>
+<div class="mini">Там розміщені основні розділи та застосунки.</div>
+</div>
+</div>
+<div class="check">
+<i>2</i>
+<div>
+<strong>Натисніть сіру хмарку OneDrive</strong>
+<div class="mini">Відкриється корпоративне сховище робочих файлів.</div>
+</div>
+</div>
+</div>
+<div class="notice">
+<div class="dot"></div>
+<div>Якщо OneDrive не відображається на лівій панелі, відкрийте список додаткових застосунків Teams і виберіть OneDrive там.</div>
+</div>
+<div class="actions">
+<button class="btn primary" onclick="go('oneDriveIntro')" type="button">OneDrive відкрито</button>
+<button class="btn ghost" onclick="go('teamsReady')" type="button">← Назад</button>
+</div>
+</section>
+<section aria-labelledby="oneDriveIntro-title" class="screen" data-step="3" id="oneDriveIntro">
+<div class="eyebrow">OneDrive · Основи</div>
+<h1 id="oneDriveIntro-title" tabindex="-1">Новий OneDrive спочатку може бути порожнім — це нормально</h1>
+<p class="lead">Це ваше робоче сховище. З часом у ньому з’являться створені вами папки та робочі файли.</p>
+<div class="mock-files">
+<div class="mock-files-head">
+<span>Мої файли</span>
+<span>Приклад структури</span>
+</div>
+<div class="mock-file">
+<div class="ico"><svg aria-hidden="true" class="ui-icon" viewbox="0 0 24 24"><path d="M3.75 6.5A1.75 1.75 0 0 1 5.5 4.75h4.12c.46 0 .9.18 1.22.5l1.1 1.1c.14.14.33.22.53.22h6.03a1.75 1.75 0 0 1 1.75 1.75v8.18a1.75 1.75 0 0 1-1.75 1.75h-13a1.75 1.75 0 0 1-1.75-1.75V6.5Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.6"></path></svg></div>
+<div><strong>Документи</strong><span>Робоча папка</span></div>
+<span class="status-tag">Папка</span>
+</div>
+<div class="mock-file">
+<div class="ico"><svg aria-hidden="true" class="ui-icon" viewbox="0 0 24 24"><path d="M3.75 6.5A1.75 1.75 0 0 1 5.5 4.75h4.12c.46 0 .9.18 1.22.5l1.1 1.1c.14.14.33.22.53.22h6.03a1.75 1.75 0 0 1 1.75 1.75v8.18a1.75 1.75 0 0 1-1.75 1.75h-13a1.75 1.75 0 0 1-1.75-1.75V6.5Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.6"></path></svg></div>
+<div><strong>Звіти</strong><span>Робоча папка</span></div>
+<span class="status-tag">Папка</span>
+</div>
+<div class="mock-file">
+<div class="ico"><svg aria-hidden="true" class="ui-icon" viewbox="0 0 24 24"><path d="M7 3.75h6.25L18 8.5v11.75H7V3.75Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.6"></path><path d="M13 3.75V9h5M9.5 13h6M9.5 16h6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.6"></path></svg></div>
+<div><strong>Звіт_за_вересень.xlsx</strong><span>Робочий файл</span></div>
+<span class="status-tag">Файл</span>
+</div>
+</div>
+<div class="analogy">
+<div class="analogy-icon"><svg aria-hidden="true" class="ui-icon" viewbox="0 0 24 24"><path d="M3.75 6.5A1.75 1.75 0 0 1 5.5 4.75h4.12c.46 0 .9.18 1.22.5l1.1 1.1c.14.14.33.22.53.22h6.03a1.75 1.75 0 0 1 1.75 1.75v8.18a1.75 1.75 0 0 1-1.75 1.75h-13a1.75 1.75 0 0 1-1.75-1.75V6.5Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.6"></path></svg></div>
+<div>
+<strong>Працюйте так само, як зі звичайними папками на комп'ютері</strong>
+<p>Створюйте зрозумілі папки — наприклад «Документи», «Звіти», «Проєкти» — і зберігайте всередині відповідні робочі файли.</p>
+</div>
+</div>
+<div class="actions">
+<button class="btn primary" onclick="go('oneDriveFiles')" type="button">Додати файли</button>
+<button class="btn ghost" onclick="go('findOneDrive')" type="button">← Назад</button>
+</div>
+</section>
+<section aria-labelledby="oneDriveFiles-title" class="screen" data-step="3" id="oneDriveFiles">
+<div class="eyebrow">OneDrive · Папки та файли</div>
+<h1 id="oneDriveFiles-title" tabindex="-1">Створюйте папки та завантажуйте робочі файли</h1>
+<p class="lead">Усе, що ви зберігаєте в OneDrive, доступне через ваш корпоративний обліковий запис.</p>
+<div class="checklist">
+<div class="check">
+<i>1</i>
+<div>
+<strong>Створити папку</strong>
+<div class="mini">Оберіть створення нового елемента, виберіть «Папка», дайте їй зрозумілу назву та відкрийте її.</div>
+</div>
+</div>
+<div class="check">
+<i>2</i>
+<div>
+<strong>Завантажити файл або папку</strong>
+<div class="mini">Оберіть завантаження та виберіть потрібний файл або папку на комп'ютері.</div>
+</div>
+</div>
+<div class="check">
+<i>3</i>
+<div>
+<strong>Альтернативний спосіб — перетягування</strong>
+<div class="mini">Можна просто перетягнути файл або цілу папку з Провідника Windows прямо у вікно OneDrive. Після цього почнеться завантаження.</div>
+</div>
+</div>
+<div class="check">
+<i>4</i>
+<div>
+<strong>Перевірити, що дані з'явилися у списку</strong>
+<div class="mini">Після завантаження файл або папка буде доступна у вашому OneDrive.</div>
+</div>
+</div>
+</div>
+<div class="notice">
+<div class="dot"></div>
+<div><strong>Важливо:</strong> файл зберігається у вашому корпоративному OneDrive. Після входу в той самий mil-акаунт файл можна відкрити з будь-якого пристрою.</div>
+</div>
+<div class="actions">
+<button class="btn primary" onclick="go('oneDriveEverywhere')" type="button">Доступ з інших пристроїв</button>
+<button class="btn ghost" onclick="go('oneDriveIntro')" type="button">← Назад</button>
+</div>
+</section>
+<section aria-labelledby="oneDriveEverywhere-title" class="screen" data-step="3" id="oneDriveEverywhere">
+<div class="eyebrow">OneDrive · Доступ до файлів</div>
+<h1 id="oneDriveEverywhere-title" tabindex="-1">Підключення OneDrive до комп’ютера — <span class="optional-word">необов’язкове</span></h1>
+<p class="lead">Ви вже можете користуватися OneDrive через Teams і відкривати свої файли після входу в mil-акаунт на будь-якому пристрої. Додатково OneDrive можна підключити безпосередньо до Windows.</p>
+<div class="analogy">
+<div class="analogy-icon"><svg aria-hidden="true" class="ui-icon" viewbox="0 0 24 24"><path d="M18.7 8.2A7 7 0 0 0 6.4 6.5L4.8 8.1M5.3 15.8a7 7 0 0 0 12.3 1.7l1.6-1.6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.7"></path><path d="M4.6 4.9v3.4H8M19.4 19.1v-3.4H16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"></path></svg></div>
+<div>
+<strong>Що дає підключення OneDrive до ПК</strong>
+<p>Ваші робочі файли з’являться у Провіднику Windows як звичайна папка. Файли можна буде перетягувати, відкривати та зберігати так само, як інші файли на комп’ютері, а зміни синхронізуватимуться з OneDrive.</p>
+</div>
+</div>
+<div class="checklist">
+<div class="check">
+<i>1</i>
+<div>
+<strong>Швидкий доступ через Провідник Windows</strong>
+<div class="mini">Не потрібно щоразу відкривати Teams, щоб знайти робочий файл.</div>
+</div>
+</div>
+<div class="check">
+<i>2</i>
+<div>
+<strong>Автоматична синхронізація змін</strong>
+<div class="mini">Файли у папці OneDrive синхронізуються з вашим корпоративним сховищем.</div>
+</div>
+</div>
+<div class="check">
+<i>3</i>
+<div>
+<strong>Можливість зберігати потрібні файли локально</strong>
+<div class="mini">За потреби окремі файли або папки можна зробити доступними на комп’ютері навіть без підключення до мережі.</div>
+</div>
+</div>
+</div>
+<div class="choices">
+<button class="choice" onclick="setChoice('local_onedrive','yes'); go('localOneDriveStart')" type="button">
+<b>Підключити OneDrive до цього ПК</b>
+<span>Налаштуємо папку OneDrive у Провіднику Windows.</span>
+</button>
+<button class="choice" onclick="setChoice('local_onedrive','skip'); complete(3); go('security')" type="button">
+<b>Пропустити цей крок</b>
+<span>OneDrive залишиться доступним через Teams та ваш mil-акаунт.</span>
+</button>
+</div>
+<div class="actions">
+<button class="btn ghost" onclick="go('oneDriveFiles')" type="button">← Назад</button>
+</div>
+</section>
+<section aria-labelledby="localOneDriveStart-title" class="screen optional-screen" data-step="3" id="localOneDriveStart">
+<div class="eyebrow">Необов’язково · OneDrive на комп’ютері</div>
+<h1 id="localOneDriveStart-title" tabindex="-1">Підключимо OneDrive до Windows</h1>
+<p class="lead">Після налаштування у Провіднику Windows з’явиться папка OneDrive, яка синхронізуватиметься з вашим корпоративним сховищем.</p>
+<div class="checklist">
+<div class="check">
+<i>1</i>
+<div>
+<strong>Натисніть «Пуск»</strong>
+<div class="mini">Почніть вводити слово OneDrive.</div>
+</div>
+</div>
+<div class="check">
+<i>2</i>
+<div>
+<strong>Відкрийте програму Microsoft OneDrive</strong>
+<div class="mini">З'явиться вікно входу до OneDrive.</div>
+</div>
+</div>
+</div>
+<div class="choices">
+<button class="choice" onclick="go('localOneDriveLogin')" type="button">
+<b>OneDrive відкрився</b>
+<span>Переходимо до підключення корпоративного облікового запису.</span>
+</button>
+<button class="choice" onclick="go('localOneDriveMissing')" type="button">
+<b>OneDrive не знайдено</b>
+<span>Що робити, якщо OneDrive не знайдено.</span>
+</button>
+</div>
+<div class="actions">
+<button class="btn secondary" onclick="setChoice('local_onedrive','skip'); complete(3); go('security')" type="button">Пропустити підключення до ПК</button>
+<button class="btn ghost" onclick="go('oneDriveEverywhere')" type="button">← Назад</button>
+</div>
+</section>
+<section aria-labelledby="localOneDriveMissing-title" class="screen optional-screen" data-step="3" id="localOneDriveMissing">
+<div class="eyebrow">OneDrive не знайдено</div>
+<h1 id="localOneDriveMissing-title" tabindex="-1">Якщо програми OneDrive немає</h1>
+<p class="lead">На більшості робочих комп'ютерів Windows OneDrive уже встановлено. Якщо пошук його не знаходить, не потрібно самостійно змінювати системні налаштування.</p>
+<div class="notice danger">
+<div class="dot"></div>
+<div>Зверніться до адміністратора або відповідальної особи, щоб перевірити встановлення OneDrive на вашому комп'ютері.</div>
+</div>
+<div class="actions">
+<button class="btn secondary" onclick="go('localOneDriveStart')" type="button">Перевірити ще раз</button>
+<button class="btn ghost" onclick="go('oneDriveEverywhere')" type="button">← Назад</button>
+</div>
+</section>
+<section aria-labelledby="localOneDriveLogin-title" class="screen optional-screen" data-step="3" id="localOneDriveLogin">
+<div class="eyebrow">OneDrive · Підключення до ПК</div>
+<h1 id="localOneDriveLogin-title" tabindex="-1">OneDrive може автоматично запропонувати ваш mil-акаунт</h1>
+<p class="lead">Якщо під час першого входу ви підтвердили використання корпоративного облікового запису на цьому пристрої, Windows може вже мати дані вашого mil-акаунта.</p>
+<div class="notice">
+<div class="dot"></div>
+<div><strong>Якщо OneDrive одразу показує ваш mil-акаунт</strong> — просто підтвердьте його та продовжуйте. Повторно вводити пошту і пароль не потрібно.</div>
+</div>
+<div class="checklist">
+<div class="check">
+<i>1</i>
+<div>
+<strong>Перевірте, який обліковий запис пропонує OneDrive</strong>
+<div class="mini">Якщо бачите свою корпоративну адресу — підтвердьте її.</div>
+</div>
+</div>
+<div class="check">
+<i>2</i>
+<div>
+<strong>Якщо обліковий запис не з’явився автоматично</strong>
+<div class="mini">Введіть корпоративну пошту та новий пароль, який ви створили під час першого входу.</div>
+</div>
+</div>
+<div class="check">
+<i>3</i>
+<div>
+<strong>Пройдіть стандартне налаштування OneDrive</strong>
+<div class="mini">Коли OneDrive запропонує розташування папки, для звичайного користувача достатньо залишити запропонований варіант і продовжити.</div>
+</div>
+</div>
+</div>
+<div class="actions">
+<button class="btn primary" onclick="go('localOneDriveReady')" type="button">OneDrive налаштовано</button>
+<button class="btn ghost" onclick="go('localOneDriveStart')" type="button">← Назад</button>
+</div>
+</section>
+<section aria-labelledby="localOneDriveReady-title" class="screen optional-screen" data-step="3" id="localOneDriveReady">
+<div class="eyebrow">OneDrive · Провідник Windows</div>
+<h1 id="localOneDriveReady-title" tabindex="-1">Тепер OneDrive доступний у Провіднику Windows</h1>
+<p class="lead">У Провіднику Windows з’явиться папка OneDrive вашої організації. Її вміст синхронізується з корпоративним OneDrive.</p>
+<div aria-label="Схема синхронізації OneDrive" class="visual-guide">
+<div class="visual-guide-label">Як працює синхронізація</div>
+<div class="visual-sync">
+<div class="visual-sync-side">
+<div class="visual-icon"><svg aria-hidden="true" viewbox="0 0 24 24"><rect fill="none" height="11" rx="1.5" stroke="currentColor" stroke-width="1.6" width="17" x="3.5" y="4.5"></rect><path d="M9 19.5h6M12 15.5v4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.6"></path></svg></div>
+<div><strong>Провідник Windows</strong><span>Папка OneDrive на цьому ПК</span></div>
+</div>
+<div class="visual-sync-arrow">⇄</div>
+<div class="visual-sync-side">
+<div class="visual-icon"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M7.6 18.25h9.1a4.05 4.05 0 0 0 .42-8.08A5.55 5.55 0 0 0 6.7 8.65a4.8 4.8 0 0 0 .9 9.6Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></div>
+<div><strong>Корпоративний OneDrive</strong><span>Ті самі робочі файли</span></div>
+</div>
+</div>
+</div>
+<div class="sync-pair">
+<div class="sync-box">
+<small>На комп'ютері</small>
+<strong>Папка OneDrive у Провіднику Windows</strong>
+</div>
+<div class="sync-arrow">⇄</div>
+<div class="sync-box">
+<small>У хмарі</small>
+<strong>Ваш корпоративний OneDrive</strong>
+</div>
+</div>
+<div class="analogy">
+<div class="analogy-icon"><svg aria-hidden="true" class="ui-icon" viewbox="0 0 24 24"><path d="M18.7 8.2A7 7 0 0 0 6.4 6.5L4.8 8.1M5.3 15.8a7 7 0 0 0 12.3 1.7l1.6-1.6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.7"></path><path d="M4.6 4.9v3.4H8M19.4 19.1v-3.4H16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"></path></svg></div>
+<div>
+<strong>Зміни синхронізуються в обидві сторони</strong>
+<p>Додали файл у папку OneDrive на ПК — він з'явиться у хмарі. Змінили файл у OneDrive — зміна синхронізується на комп'ютер.</p>
+</div>
+</div>
+<div class="actions">
+<button class="btn primary" onclick="go('localFiles')" type="button">Зробити файли доступними локально</button>
+<button class="btn ghost" onclick="go('localOneDriveLogin')" type="button">← Назад</button>
+</div>
+</section>
+<section aria-labelledby="localFiles-title" class="screen optional-screen" data-step="3" id="localFiles">
+<div class="eyebrow">OneDrive · Локальні копії</div>
+<h1 id="localFiles-title" tabindex="-1">Як зробити, щоб потрібні файли були також на цьому ПК</h1>
+<p class="lead">OneDrive може показувати файли у Провіднику, навіть якщо деякі з них зберігаються тільки у хмарі. Якщо файл має бути фізично завантажений на комп'ютер, це можна вказати окремо.</p>
+<div aria-label="Схема статусів файлів OneDrive" class="visual-guide">
+<div class="visual-guide-label">Статуси файлів</div>
+<div class="visual-status">
+<div class="visual-status-item">
+<div class="visual-status-symbol"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M7.6 18.25h9.1a4.05 4.05 0 0 0 .42-8.08A5.55 5.55 0 0 0 6.7 8.65a4.8 4.8 0 0 0 .9 9.6Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></div>
+<div><strong>Тільки онлайн</strong><span>Файл зберігається у OneDrive</span></div>
+</div>
+<div class="visual-status-item">
+<div class="visual-status-symbol">✓</div>
+<div><strong>На цьому ПК</strong><span>Є локальна копія файлу</span></div>
+</div>
+<div class="visual-status-item">
+<div class="visual-status-symbol"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M3.75 6.5A1.75 1.75 0 0 1 5.5 4.75h4.12c.46 0 .9.18 1.22.5l1.1 1.1c.14.14.33.22.53.22h6.03a1.75 1.75 0 0 1 1.75 1.75v8.18a1.75 1.75 0 0 1-1.75 1.75h-13a1.75 1.75 0 0 1-1.75-1.75V6.5Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.6"></path></svg></div>
+<div><strong>Завжди локально</strong><span>Оберіть «Завжди зберігати на цьому пристрої»</span></div>
+</div>
+</div>
+</div>
+<div class="icon-guide">
+<div class="icon-row">
+<div class="symbol"><svg aria-hidden="true" class="ui-icon" viewbox="0 0 24 24"><path d="M7.6 18.25h9.1a4.05 4.05 0 0 0 .42-8.08A5.55 5.55 0 0 0 6.7 8.65a4.8 4.8 0 0 0 .9 9.6Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></div>
+<div>
+<strong>Хмаринка</strong>
+<p>Файл є у OneDrive, але зараз зберігається тільки онлайн. Для відкриття потрібне підключення до мережі.</p>
+</div>
+</div>
+<div class="icon-row">
+<div class="symbol"><svg aria-hidden="true" class="ui-icon" viewbox="0 0 24 24"><path d="m7.2 12.3 3.05 3.05 6.55-7.1" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9"></path></svg></div>
+<div>
+<strong>Зелена позначка</strong>
+<p>Файл уже завантажений на цей комп’ютер і доступний локально.</p>
+</div>
+</div>
+</div>
+<div class="checklist">
+<div class="check">
+<i>1</i>
+<div>
+<strong>Натисніть правою кнопкою на потрібній папці або файлі OneDrive</strong>
+<div class="mini">Робіть це у Провіднику Windows.</div>
+</div>
+</div>
+<div class="check">
+<i>2</i>
+<div>
+<strong>Оберіть «Завжди зберігати на цьому пристрої»</strong>
+<div class="mini">Після завантаження ця папка або файл матиме локальну копію на ПК та продовжить синхронізуватися з OneDrive.</div>
+</div>
+</div>
+</div>
+<div class="notice">
+<div class="dot"></div>
+<div><strong>Коротко:</strong> OneDrive у Teams і папка OneDrive на ПК дають доступ до тих самих робочих файлів. Синхронізація підтримує їх актуальними.</div>
+</div>
+<div class="actions">
+<button class="btn primary" onclick="complete(3); go('security')" type="button">Далі</button>
+<button class="btn ghost" onclick="go('localOneDriveReady')" type="button">← Назад</button>
+</div>
+</section>
+<section aria-labelledby="security-title" class="screen" data-step="4" id="security">
+<div class="eyebrow">Крок 4 · Інформаційна безпека</div>
+<h1 id="security-title" tabindex="-1">Перед початком роботи ознайомтеся з правилами</h1>
+<p class="lead">dsst.mil.ua — корпоративне середовище МОУ. Використовуйте його для роботи з матеріалами, які дозволено зберігати в цьому середовищі.</p>
+<div class="checklist">
+<div class="check">
+<i>✓</i>
+<div>
+<strong>Використовуйте лише свій обліковий запис</strong>
+<div class="mini">Не передавайте пароль або доступ до свого mil-акаунта іншим людям.</div>
+</div>
+</div>
+<div class="check">
+<i>✓</i>
+<div>
+<strong>Зберігайте лише матеріали без грифів ДСК і вище</strong>
+<div class="mini">OneDrive у цьому середовищі призначений для робочих матеріалів, які не мають відповідних обмежень доступу.</div>
+</div>
+</div>
+<div class="check">
+<i>!</i>
+<div>
+<strong>Не зберігайте інформацію з обмеженим доступом</strong>
+<div class="mini">До цього належать документи з грифом ДСК і вище, матеріали з державною таємницею та інші категорії інформації з обмеженим доступом.</div>
+</div>
+</div>
+<div class="check">
+<i>!</i>
+<div>
+<strong>Не переносіть службові файли в інші хмарні сервіси</strong>
+<div class="mini">Для службових матеріалів не використовуйте Google Drive, Dropbox, особистий OneDrive та інші сторонні хмарні сховища.</div>
+</div>
+</div>
+</div>
+<div class="notice danger">
+<div class="dot"></div>
+<div><strong>Важливо:</strong> якщо ви не впевнені, чи можна зберігати конкретний файл у dsst.mil.ua, не завантажуйте його до уточнення правил.</div>
+</div>
+<div class="actions">
+<button class="btn primary" onclick="complete(4); go('finish')" type="button">Завершити налаштування</button>
+<button class="btn ghost" onclick="go('oneDriveEverywhere')" type="button">← Назад</button>
+</div>
+</section>
+<section aria-labelledby="finish-title" class="screen" data-step="4" id="finish">
+<div class="finish-success">
+<div class="finish-badge">Налаштування завершено</div>
+<h1 id="finish-title" tabindex="-1">Ваш mil-акаунт готовий до роботи</h1>
+<p class="lead">Ви виконали необхідні кроки першого входу та можете користуватися корпоративними сервісами Microsoft 365.</p>
+</div>
+<div aria-label="Результат налаштування" class="finish-summary">
+<div class="finish-row">
+<div aria-hidden="true" class="finish-row-icon">✓</div>
+<div class="finish-row-copy">
+<strong>Обліковий запис</strong>
+<span>Активовано</span>
+</div>
+</div>
+<div class="finish-row">
+<div aria-hidden="true" class="finish-row-icon">✓</div>
+<div class="finish-row-copy">
+<strong>Microsoft Teams</strong>
+<span>Готовий до роботи</span>
+</div>
+</div>
+<div class="finish-row">
+<div aria-hidden="true" class="finish-row-icon">✓</div>
+<div class="finish-row-copy">
+<strong>OneDrive</strong>
+<span id="finishOneDriveStatus">Готовий до роботи</span>
+</div>
+</div>
+</div>
+<div class="finish-next">
+<div class="finish-next-label">Що далі</div>
+<p id="finishNextText">Використовуйте Teams для робочого спілкування, а OneDrive — для зберігання корпоративних файлів.</p>
+</div>
+<div class="actions finish-actions">
+<button class="btn ghost" onclick="restart()" type="button">Пройти інструкцію ще раз</button>
+</div>
+</section>
+</div></main>
+</div>
+</div>
+<div class="resume-overlay" hidden="" id="resumeOverlay">
+<div aria-describedby="resumeText" aria-labelledby="resumeTitle" aria-modal="true" class="resume-dialog" role="dialog">
+<div aria-hidden="true" class="resume-icon">↻</div>
+<div class="resume-kicker">Незавершене налаштування</div>
+<h2 id="resumeTitle">Продовжити з місця, де ви зупинилися?</h2>
+<p id="resumeText">Ми зберегли ваш поточний крок.</p>
+<div class="resume-actions">
+<button class="btn secondary" onclick="startOverFromResume()" type="button">Почати спочатку</button>
+<button class="btn primary" id="resumeContinueBtn" onclick="resumeProgress()" type="button">Продовжити</button>
+</div>
+</div>
+</div>
 <script>
   const completed = new Set();
   const SUPPORT_WHATSAPP_NUMBER = "380688239942";
+const supportHints = {
+    start: 'Перед початком перевірте, що у вас є корпоративна адреса, тимчасовий пароль і телефон для підтвердження.',
+    findTeams: 'Натисніть «Пуск» і почніть вводити Teams. Якщо програма встановлена, Windows покаже її у результатах пошуку.',
+    teamsStore: 'У Microsoft Store обирайте саме офіційний Microsoft Teams. Якщо Store не працює — є альтернативний шлях через браузер.',
+    teamsBrowserInstall: 'Відкривайте сторінку завантаження лише на офіційному сайті Microsoft. Якщо Windows просить права адміністратора — зверніться до адміністратора.',
+    teamsFirstLogin: 'Для першого входу використовуйте корпоративну адресу dsst.mil.ua та тимчасовий пароль, які вам надали.',
+    verifyPhone: 'Оберіть SMS на номер телефону, дочекайтеся коду та введіть його у вікні Microsoft.',
+    changePassword: 'У полі поточного пароля введіть тимчасовий пароль, а нижче двічі введіть новий пароль.',
+    deviceSignIn: 'Підтвердьте вхід корпоративним обліковим записом на цьому пристрої, але уважно прочитайте наступний екран.',
+    deviceManagement: 'Увійти в корпоративний обліковий запис можна. Опцію керування пристроєм організацією вмикати не потрібно.',
+    teamsReady: 'Teams уже готовий. Основна навігація та доступні застосунки знаходяться на лівій панелі.',
+    findOneDrive: 'Шукайте OneDrive на лівій панелі Teams. Його іконка виглядає як хмара. Якщо його не видно — відкрийте список додаткових застосунків.',
+    oneDriveIntro: 'Порожній OneDrive для нового акаунта — це нормально. Створіть зрозумілі папки та поступово додавайте робочі файли.',
+    oneDriveFiles: 'Файл або цілу папку можна завантажити через меню OneDrive або просто перетягнути з Провідника Windows.',
+    oneDriveEverywhere: 'Підключення OneDrive до Windows необов’язкове. Через Teams ваш OneDrive уже доступний після входу в mil-акаунт.',
+    localOneDriveStart: 'Цей крок необов’язковий. Якщо не хочете підключати OneDrive до Провідника Windows зараз — його можна пропустити.',
+    localOneDriveMissing: 'Якщо OneDrive не знаходиться через «Пуск», не змінюйте системні налаштування самостійно — зверніться до адміністратора.',
+    localOneDriveLogin: 'Якщо Windows уже показує ваш корпоративний акаунт, просто підтвердьте його. Інакше введіть корпоративну адресу та новий пароль.',
+    localOneDriveReady: 'Після підключення папка OneDrive у Провіднику та корпоративний OneDrive працюють з одними й тими самими файлами.',
+    localFiles: 'Для постійної локальної копії файлу або папки оберіть у Провіднику «Завжди зберігати на цьому пристрої».',
+    security: 'Якщо не впевнені, чи дозволено зберігати файл у цьому середовищі, не завантажуйте його до уточнення правил.',
+    finish: 'Налаштування завершено. Teams і OneDrive готові до роботи у межах обраного вами сценарію.'
+  };
 
-  let supportHintShown = false;
+  function getCurrentScreenId(){
+    return document.querySelector('.screen.active')?.id || 'start';
+  }
 
   function getCurrentStepName(){
     const active = document.querySelector('.screen.active');
@@ -2475,74 +3901,311 @@
     return [eyebrow, heading].filter(Boolean).join(' — ');
   }
 
+  function getRouteContextText(){
+    const parts = [];
+
+    if(choices.teams === 'installed'){
+      parts.push('Teams уже був встановлений');
+    }else if(choices.teams === 'missing'){
+      parts.push(
+        choices.teams_install === 'browser'
+          ? 'Teams встановлювався через сайт Microsoft'
+          : 'Teams встановлювався окремо'
+      );
+    }
+
+    if(choices.local_onedrive === 'yes'){
+      parts.push('обрано підключення OneDrive до ПК');
+    }else if(choices.local_onedrive === 'skip'){
+      parts.push('підключення OneDrive до ПК пропущено');
+    }
+
+    return parts.join('; ');
+  }
+
+  function closeSupportNote(){
+    const note = document.getElementById('supportNote');
+    const fab = document.getElementById('supportFab');
+
+    if(note) note.classList.remove('show');
+    if(fab) fab.setAttribute('aria-expanded','false');
+  }
+
   function openWhatsAppSupport(){
     const note = document.getElementById('supportNote');
     const link = document.getElementById('supportLink');
     const text = document.getElementById('supportText');
+    const title = document.getElementById('supportTitle');
+    const fab = document.getElementById('supportFab');
 
+    if(!note || !link || !text || !fab) return;
+
+    if(note.classList.contains('show')){
+      closeSupportNote();
+      return;
+    }
+
+    const currentId = getCurrentScreenId();
     const currentStep = getCurrentStepName();
-    const message =
-      'Вітаю! Мені потрібна допомога з налаштуванням mil-акаунта. Я зупинився(-лась) на кроці: ' +
-      currentStep;
+    const hint = supportHints[currentId] || 'Перевірте поточний крок ще раз. Якщо проблема лишилася, напишіть у підтримку.';
+    const routeContext = getRouteContextText();
+    const position = getRoutePosition(currentId);
+
+    title.textContent = 'Допомога на цьому кроці';
+
+    text.innerHTML =
+      '<span class="support-context">' +
+      (position.optional ? 'Необов’язковий крок' : `Крок ${position.index + 1} з ${position.route.length}`) +
+      '</span>' +
+      hint +
+      (routeContext
+        ? '<div class="support-route">Ваш маршрут: ' + routeContext + '.</div>'
+        : '');
+
+    const messageParts = [
+      'Вітаю! Мені потрібна допомога з налаштуванням mil-акаунта.',
+      'Я зупинився(-лась) на кроці: ' + currentStep + '.'
+    ];
+
+    if(routeContext){
+      messageParts.push('Мій маршрут: ' + routeContext + '.');
+    }
 
     link.href =
       'https://wa.me/' +
       SUPPORT_WHATSAPP_NUMBER +
       '?text=' +
-      encodeURIComponent(message);
+      encodeURIComponent(messageParts.join('\n'));
 
     link.style.display = 'inline-flex';
-    text.textContent = 'Натисніть кнопку нижче — відкриється чат WhatsApp із підготовленим повідомленням.';
     note.classList.add('show');
+    fab.setAttribute('aria-expanded','true');
   }
 
   document.addEventListener('click', function(e){
     const note = document.getElementById('supportNote');
     const fab = document.getElementById('supportFab');
+
     if(note && fab && !note.contains(e.target) && !fab.contains(e.target)){
-      note.classList.remove('show');
+      closeSupportNote();
     }
   });
 
-  const choices = {};
+  document.addEventListener('keydown', function(e){
+    if(e.key !== 'Escape') return;
 
-  // Детальний прогрес маршруту. Він змінюється на кожному екрані.
-  const screenProgress = {
-    start: 0,
-    findTeams: 6,
-    teamsStore: 10,
-    teamsBrowserInstall: 14,
-    teamsFirstLogin: 20,
-    verifyPhone: 27,
-    changePassword: 34,
-    deviceSignIn: 39,
-    deviceManagement: 44,
-    teamsReady: 50,
-    findOneDrive: 55,
-    oneDriveIntro: 60,
-    oneDriveFiles: 65,
-    oneDriveEverywhere: 70,
-    localOneDriveStart: 75,
-    localOneDriveMissing: 77,
-    localOneDriveLogin: 80,
-    localOneDriveReady: 86,
-    localFiles: 92,
-    security: 97,
-    finish: 100
+    const overlay = document.getElementById('resumeOverlay');
+    if(overlay && !overlay.hidden){
+      overlay.hidden = true;
+      pendingResumeId = null;
+      return;
+    }
+
+    closeSupportNote();
+  });
+
+  const STORAGE_KEYS = {
+    choices: 'm365_onboarding_choices',
+    current: 'm365_onboarding_current'
   };
+
+  function storageGet(key){
+    try{
+      return localStorage.getItem(key);
+    }catch{
+      return null;
+    }
+  }
+
+  function storageSet(key, value){
+    try{
+      localStorage.setItem(key, value);
+    }catch{}
+  }
+
+  function storageRemove(key){
+    try{
+      localStorage.removeItem(key);
+    }catch{}
+  }
+
+  function loadStoredChoices(){
+    try{
+      const raw = storageGet(STORAGE_KEYS.choices);
+      const parsed = raw ? JSON.parse(raw) : {};
+      return parsed && typeof parsed === 'object' ? parsed : {};
+    }catch{
+      return {};
+    }
+  }
+
+  const choices = loadStoredChoices();
+
+  const commonRouteAfterTeams = [
+    'teamsFirstLogin',
+    'verifyPhone',
+    'changePassword',
+    'deviceSignIn',
+    'deviceManagement',
+    'teamsReady',
+    'findOneDrive',
+    'oneDriveIntro',
+    'oneDriveFiles',
+    'oneDriveEverywhere',
+    'security',
+    'finish'
+  ];
+
+  const optionalLocalOneDriveScreens = new Set([
+    'localOneDriveStart',
+    'localOneDriveMissing',
+    'localOneDriveLogin',
+    'localOneDriveReady',
+    'localFiles'
+  ]);
+
+  function buildMandatoryRoute(currentId){
+    const route = ['start','findTeams'];
+
+    const isOnTeamsInstallBranch =
+      currentId === 'teamsStore' ||
+      currentId === 'teamsBrowserInstall';
+
+    if(choices.teams === 'missing' || isOnTeamsInstallBranch){
+      route.push('teamsStore');
+
+      if(
+        choices.teams_install === 'browser' ||
+        currentId === 'teamsBrowserInstall'
+      ){
+        route.push('teamsBrowserInstall');
+      }
+    }
+
+    route.push(...commonRouteAfterTeams);
+    return route;
+  }
+
+  function getRoutePosition(id){
+    const route = buildMandatoryRoute(id);
+
+    if(optionalLocalOneDriveScreens.has(id)){
+      const anchorIndex = route.indexOf('oneDriveEverywhere');
+      return {
+        route,
+        index:Math.max(0, anchorIndex),
+        optional:true
+      };
+    }
+
+    let index = route.indexOf(id);
+
+    // Troubleshooting or legacy state safety.
+    if(index < 0){
+      index = 0;
+    }
+
+    return {
+      route,
+      index,
+      optional:false
+    };
+  }
 
   function setChoice(key, value){
     choices[key] = value;
-    localStorage.setItem('m365_onboarding_choices', JSON.stringify(choices));
+
+    if(key === 'teams' && value === 'installed'){
+      delete choices.teams_install;
+    }
+
+    storageSet(STORAGE_KEYS.choices, JSON.stringify(choices));
   }
 
-  function go(id){
+
+  function updateFinishState(){
+    const status = document.getElementById('finishOneDriveStatus');
+    const nextText = document.getElementById('finishNextText');
+    if(!status || !nextText) return;
+
+    const localChoice = choices.local_onedrive;
+
+    if(localChoice === 'yes'){
+      status.textContent = 'Готовий · синхронізацію з ПК налаштовано';
+      nextText.textContent =
+        'Використовуйте Teams для робочого спілкування та OneDrive для корпоративних файлів. Папка OneDrive у Windows синхронізуватиме ваші робочі файли з корпоративним сховищем.';
+    }else if(localChoice === 'skip'){
+      status.textContent = 'Готовий · доступ через Teams';
+      nextText.textContent =
+        'Використовуйте Teams для робочого спілкування та OneDrive для корпоративних файлів. Підключення OneDrive до Windows ви пропустили — це можна зробити пізніше.';
+    }else{
+      status.textContent = 'Готовий до роботи';
+      nextText.textContent =
+        'Використовуйте Teams для робочого спілкування, а OneDrive — для зберігання корпоративних файлів.';
+    }
+  }
+
+
+  let historyReady = false;
+  let handlingHistoryNavigation = false;
+
+  function screenHash(id){
+    return '#' + encodeURIComponent(id);
+  }
+
+  function getScreenFromHash(){
+    const raw = window.location.hash.replace(/^#/,'');
+    if(!raw) return null;
+
+    try{
+      const id = decodeURIComponent(raw);
+      return document.getElementById(id)?.classList.contains('screen') ? id : null;
+    }catch{
+      return null;
+    }
+  }
+
+  function writeHistory(id, mode='push'){
+    const state = { screen:id };
+    const url = screenHash(id);
+
+    if(mode === 'replace'){
+      history.replaceState(state,'',url);
+    }else if(mode === 'push'){
+      history.pushState(state,'',url);
+    }
+  }
+
+  function go(id, options = {}){
     const target = document.getElementById(id);
     if(!target) return;
+
+    const {
+      historyMode = historyReady ? 'push' : 'replace',
+      persist = true,
+      focus = true
+    } = options;
+
+    closeSupportNote();
 
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
     target.classList.add('active');
     target.scrollTop = 0;
+
+    const workspace = document.querySelector('.workspace');
+    if(workspace){
+      workspace.classList.toggle('is-finish', id === 'finish');
+    }
+
+    if(id === 'finish'){
+      updateFinishState();
+
+      // Completed sessions should not trigger a resume dialog on the next visit.
+      storageRemove(STORAGE_KEYS.current);
+      storageRemove(STORAGE_KEYS.choices);
+    }else if(persist){
+      storageSet(STORAGE_KEYS.current, id);
+    }
 
     target.querySelectorAll('.choice').forEach(choice => {
       choice.classList.remove('attention');
@@ -2554,6 +4217,23 @@
     const step = Number(target.dataset.step || 1);
     setActiveStep(step);
     updateProgressForScreen(id);
+
+    if(focus){
+      const heading = target.querySelector('h1');
+      if(heading){
+        window.requestAnimationFrame(() => {
+          try{
+            heading.focus({preventScroll:true});
+          }catch{
+            heading.focus();
+          }
+        });
+      }
+    }
+
+    if(!handlingHistoryNavigation && historyMode !== 'none'){
+      writeHistory(id, historyMode);
+    }
 
     if(window.innerWidth < 900){
       window.scrollTo({top:0, behavior:'smooth'});
@@ -2571,27 +4251,192 @@
       // Усі попередні великі етапи показуємо завершеними.
       el.classList.toggle('done', n < step);
       el.classList.toggle('active', n === step);
+
+      if(n === step){
+        el.setAttribute('aria-current','step');
+      }else{
+        el.removeAttribute('aria-current');
+      }
     });
   }
 
+  function getProgressColor(pct){
+    // 0%  -> Microsoft-like blue
+    // 65% -> teal
+    // 100% -> success green
+    const stops = [
+      { p:0,   c:[31,95,191] },
+      { p:65,  c:[34,139,154] },
+      { p:100, c:[39,103,73] }
+    ];
+
+    const from = pct <= 65 ? stops[0] : stops[1];
+    const to   = pct <= 65 ? stops[1] : stops[2];
+    const t = Math.max(0, Math.min(1, (pct - from.p) / (to.p - from.p)));
+
+    const rgb = from.c.map((v,i) => Math.round(v + (to.c[i] - v) * t));
+    return `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
+  }
+
   function updateProgressForScreen(id){
-    const pct = screenProgress[id] ?? 0;
-    document.getElementById('bar').style.width = pct + '%';
-    document.getElementById('pct').textContent = pct + '%';
+    const position = getRoutePosition(id);
+    const route = position.route;
+    const index = position.index;
+    const optional = position.optional;
+
+    const denominator = Math.max(1, route.length - 1);
+    const pct = id === 'finish'
+      ? 100
+      : Math.round((index / denominator) * 100);
+
+    const bar = document.getElementById('bar');
+    const pctEl = document.getElementById('pct');
+    const progress = bar?.parentElement;
+
+    if(bar){
+      bar.style.width = pct + '%';
+      bar.style.backgroundColor = getProgressColor(pct);
+
+      const progressEl = bar.parentElement;
+      if(progressEl?.getAttribute('role') === 'progressbar'){
+        progressEl.setAttribute('aria-valuenow', String(pct));
+      }
+    }
+
+    if(pctEl){
+      pctEl.textContent = pct === 100 ? 'Готово' : pct + '%';
+      pctEl.style.color = getProgressColor(pct);
+      pctEl.style.fontWeight = pct >= 80 ? '700' : '650';
+    }
+
+    if(progress){
+      progress.classList.toggle('complete', pct === 100);
+    }
 
     const status = document.getElementById('routeStatus');
+
     if(status){
-      status.textContent = pct === 100
-        ? 'Налаштування завершено'
-        : 'Налаштування триває';
+      status.classList.toggle('is-optional', optional);
+      status.classList.toggle('is-complete', pct === 100);
+
+      if(pct === 100){
+        status.textContent = 'Налаштування завершено';
+      }else if(optional){
+        status.textContent = 'Необов’язковий крок · OneDrive';
+      }else{
+        status.textContent = `Крок ${index + 1} з ${route.length}`;
+      }
     }
+  }
+
+  let pendingResumeId = null;
+
+  function clearStoredSession(){
+    storageRemove(STORAGE_KEYS.current);
+    storageRemove(STORAGE_KEYS.choices);
+
+    Object.keys(choices).forEach(key => delete choices[key]);
   }
 
   function restart(){
     completed.clear();
-    Object.keys(choices).forEach(k => delete choices[k]);
-    localStorage.removeItem('m365_onboarding_choices');
-    go('start');
+    clearStoredSession();
+
+    const overlay = document.getElementById('resumeOverlay');
+    if(overlay) overlay.hidden = true;
+
+    go('start', { historyMode:'replace' });
+  }
+
+  function showResumePrompt(id){
+    const target = document.getElementById(id);
+    const overlay = document.getElementById('resumeOverlay');
+    const text = document.getElementById('resumeText');
+    const continueBtn = document.getElementById('resumeContinueBtn');
+
+    if(!target || !overlay || !text || !continueBtn) return;
+
+    const heading = target.querySelector('h1')?.textContent?.trim();
+    pendingResumeId = id;
+
+    text.textContent = heading
+      ? `Ви зупинилися на кроці «${heading}».`
+      : 'Ми зберегли ваш поточний крок.';
+
+    overlay.hidden = false;
+
+    window.setTimeout(() => continueBtn.focus(), 30);
+  }
+
+  function resumeProgress(){
+    const id = pendingResumeId;
+    const overlay = document.getElementById('resumeOverlay');
+
+    if(overlay) overlay.hidden = true;
+    pendingResumeId = null;
+
+    if(id){
+      go(id, { historyMode:'replace' });
+    }
+  }
+
+  function startOverFromResume(){
+    pendingResumeId = null;
+    restart();
+  }
+
+
+  window.addEventListener('popstate', function(event){
+    const id =
+      event.state?.screen ||
+      getScreenFromHash() ||
+      'start';
+
+    if(!document.getElementById(id)) return;
+
+    handlingHistoryNavigation = true;
+    go(id, {
+      historyMode:'none',
+      persist:id !== 'finish',
+      focus:true
+    });
+    handlingHistoryNavigation = false;
+  });
+
+  function initializeBrowserHistory(){
+    const hashScreen = getScreenFromHash();
+
+    // A valid URL hash is respected for direct links only when
+    // there isn't a saved unfinished session waiting for confirmation.
+    const savedScreen = storageGet(STORAGE_KEYS.current);
+
+    if(hashScreen && !savedScreen && hashScreen !== 'finish'){
+      handlingHistoryNavigation = true;
+      go(hashScreen, {
+        historyMode:'none',
+        persist:true,
+        focus:false
+      });
+      handlingHistoryNavigation = false;
+      writeHistory(hashScreen,'replace');
+    }else{
+      writeHistory(getCurrentScreenId(),'replace');
+    }
+
+    historyReady = true;
+  }
+
+  function initializeSavedSession(){
+    const storedId = storageGet(STORAGE_KEYS.current);
+
+    if(
+      storedId &&
+      storedId !== 'start' &&
+      storedId !== 'finish' &&
+      document.getElementById(storedId)
+    ){
+      showResumePrompt(storedId);
+    }
   }
 
   // Ініціалізація прогресу для першого екрану.
@@ -2611,7 +4456,87 @@
     });
   }
 
+
+
+  function classifyHeadings(){
+    document.querySelectorAll('.screen h1').forEach(h => {
+      const length = h.textContent.trim().length;
+      h.classList.remove('title-long','title-very-long');
+
+      if(length >= 78){
+        h.classList.add('title-very-long');
+      }else if(length >= 54){
+        h.classList.add('title-long');
+      }
+    });
+  }
+
+
+  function enableSafeActionLayouts(){
+    document.querySelectorAll('.screen').forEach(screen => {
+      const body = screen.querySelector(':scope > .task-body');
+      const actions = screen.querySelector(':scope > .actions');
+
+      screen.classList.toggle(
+        'safe-action-layout',
+        Boolean(body && actions)
+      );
+    });
+  }
+
+  function buildTaskComposition(){
+    document.querySelectorAll('.screen').forEach(screen => {
+      if(screen.querySelector(':scope > .task-body')) return;
+
+      const lead = screen.querySelector(':scope > .lead');
+      const actions = screen.querySelector(':scope > .actions');
+      if(!lead) return;
+
+      const body = document.createElement('div');
+      body.className = 'task-body';
+
+      const main = document.createElement('div');
+      main.className = 'task-main';
+
+      const aside = document.createElement('aside');
+      aside.className = 'task-aside';
+      aside.setAttribute('aria-label', 'Контекстна підказка');
+
+      let node = lead.nextElementSibling;
+      while(node && node !== actions){
+        const next = node.nextElementSibling;
+
+        if(node.classList.contains('notice')){
+          aside.appendChild(node);
+        }else{
+          main.appendChild(node);
+        }
+
+        node = next;
+      }
+
+      body.appendChild(main);
+
+      if(aside.children.length){
+        body.appendChild(aside);
+      }else{
+        body.classList.add('no-aside');
+      }
+
+      if(actions){
+        screen.insertBefore(body, actions);
+      }else{
+        screen.appendChild(body);
+      }
+    });
+  }
+
   decorateChoiceGroups();
+  buildTaskComposition();
+  enableSafeActionLayouts();
+  classifyHeadings();
+  initializeBrowserHistory();
+  initializeSavedSession();
 
   document.querySelectorAll('.screen.active .choice').forEach(choice => {
     choice.classList.add('attention');
