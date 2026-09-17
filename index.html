@@ -3581,6 +3581,7 @@
   }
 
 </style>
+  <meta name="m365-support-build" content="1.2.2" />
 </head>
 <body><a class="skip-link" href="#workspaceMain">Перейти до інструкції</a>
 <header class="appbar compact-appbar">
@@ -4505,7 +4506,7 @@
   {
     "id": "Т0100",
     "name": "Т0100",
-    "phone": "",
+    "phone": "380688239942",
     "active": true
   },
   {
@@ -4722,6 +4723,7 @@
 <script>
   const completed = new Set();
   const SUPPORT_UNITS_API = "https://gxjjwgdzzefadjdlqwoe.supabase.co/functions/v1/m365-support-units";
+  const SUPPORT_UNITS_API_KEY = "sb_publishable_GTez3U0nEcpyfgZxjpnLfw_eOF2OcS7";
   let supportUnitsCache = [];
   let supportUnitsLoadPromise = null;
 
@@ -4737,7 +4739,7 @@
     return units
       .map((item, index) => {
         const name = String(item?.name ?? item?.code ?? '').trim();
-        const id = String(item?.id ?? item?.code ?? name || `unit-${index + 1}`).trim();
+        const id = String((item?.id ?? item?.code ?? name) || `unit-${index + 1}`).trim();
         const phone = normalizeSupportPhone(item?.phone || '');
         return {
           id,
@@ -4773,9 +4775,15 @@
       const response = await fetch(SUPPORT_UNITS_API, {
         method:'GET',
         cache:'no-store',
-        headers:{'Accept':'application/json'}
+        headers:{
+          'Accept':'application/json',
+          'apikey':SUPPORT_UNITS_API_KEY
+        }
       });
-      if(!response.ok) throw new Error('Не вдалося завантажити контакти підтримки');
+      if(!response.ok){
+        const details = await response.text().catch(() => '');
+        throw new Error(`Не вдалося завантажити контакти підтримки (${response.status})${details ? ': ' + details.slice(0,180) : ''}`);
+      }
 
       const payload = await response.json();
       const units = sanitizeSupportUnits(payload?.units || []);
@@ -5116,7 +5124,10 @@ const supportHints = {
     try{
       const response = await fetch(SUPPORT_UNITS_API, {
         method:'POST',
-        headers:{'Content-Type':'application/json'},
+        headers:{
+          'Content-Type':'application/json',
+          'apikey':SUPPORT_UNITS_API_KEY
+        },
         body:JSON.stringify({
           password,
           units:units.map((unit, index) => ({
