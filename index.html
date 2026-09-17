@@ -3208,13 +3208,387 @@
     .shell{padding-top:10px;}
   }
 
+
+  /* =========================================================
+     v1.1.0 — unit-based WhatsApp support + hidden admin page
+     ========================================================= */
+
+  .org-mark > i,
+  .org-admin-square{
+    display:block;
+    width:100%;
+    height:100%;
+    min-width:0;
+    min-height:0;
+    margin:0;
+    padding:0;
+    border:0;
+    border-radius:1px;
+    background:var(--accent);
+    box-shadow:none;
+  }
+
+  .org-admin-square{
+    appearance:none;
+    cursor:default;
+  }
+
+  .org-admin-square:hover,
+  .org-admin-square:active{
+    background:var(--accent);
+    transform:none;
+  }
+
+  .org-admin-square:focus-visible{
+    outline:2px solid rgba(31,95,191,.35);
+    outline-offset:2px;
+  }
+
+  .support-unit-field{
+    margin-top:12px;
+  }
+
+  .support-unit-field label{
+    display:block;
+    margin-bottom:5px;
+    color:#526177;
+    font-size:9px;
+    font-weight:760;
+    letter-spacing:.055em;
+    text-transform:uppercase;
+  }
+
+  .support-unit-field select{
+    width:100%;
+    min-height:39px;
+    padding:8px 32px 8px 10px;
+    border:1px solid #d7e0ea;
+    border-radius:9px;
+    background:#fff;
+    color:#26364b;
+    font-size:11px;
+    outline:none;
+  }
+
+  .support-unit-field select:focus{
+    border-color:#8eb2df;
+    box-shadow:0 0 0 3px rgba(31,95,191,.09);
+  }
+
+  .support-unit-empty{
+    margin-top:10px;
+    padding:9px 10px;
+    border:1px solid #eadfc9;
+    border-radius:8px;
+    background:#fffaf0;
+    color:#7a6239;
+    font-size:10px;
+    line-height:1.4;
+  }
+
+  .support-link.is-disabled{
+    pointer-events:none;
+    opacity:.45;
+    filter:saturate(.6);
+  }
+
+  .support-admin-overlay{
+    position:fixed;
+    inset:0;
+    z-index:1600;
+    display:grid;
+    place-items:center;
+    padding:22px;
+    background:rgba(15,23,42,.40);
+    backdrop-filter:blur(7px);
+    -webkit-backdrop-filter:blur(7px);
+  }
+
+  .support-admin-overlay[hidden]{
+    display:none;
+  }
+
+  .support-admin-page{
+    width:min(850px,100%);
+    max-height:min(760px,calc(100dvh - 44px));
+    overflow:auto;
+    padding:25px;
+    border:1px solid #d9e1eb;
+    border-radius:18px;
+    background:#fff;
+    box-shadow:0 30px 90px rgba(15,23,42,.24);
+  }
+
+  .support-admin-head{
+    display:flex;
+    justify-content:space-between;
+    gap:24px;
+    align-items:flex-start;
+    padding-bottom:18px;
+    border-bottom:1px solid var(--line-soft);
+  }
+
+  .support-admin-kicker{
+    margin-bottom:6px;
+    color:#2f67ad;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:.075em;
+    text-transform:uppercase;
+  }
+
+  .support-admin-head h2{
+    margin:0 0 6px;
+    color:#172033;
+    font-size:25px;
+    line-height:1.15;
+    letter-spacing:-.035em;
+  }
+
+  .support-admin-head p{
+    margin:0;
+    color:#6c7a8e;
+    font-size:11px;
+    line-height:1.5;
+  }
+
+  .support-admin-close{
+    width:36px;
+    height:36px;
+    flex:none;
+    display:grid;
+    place-items:center;
+    border:1px solid #d9e1eb;
+    border-radius:10px;
+    background:#fff;
+    color:#64748b;
+    font-size:22px;
+    line-height:1;
+    cursor:pointer;
+  }
+
+  .support-admin-close:hover{
+    background:#f7f9fc;
+  }
+
+  .support-admin-notice{
+    margin:18px 0;
+    padding:12px 14px;
+    display:grid;
+    gap:4px;
+    border:1px solid #dbe5f0;
+    border-radius:12px;
+    background:#f7faff;
+  }
+
+  .support-admin-notice strong{
+    color:#30445e;
+    font-size:10.5px;
+  }
+
+  .support-admin-notice span{
+    color:#66758a;
+    font-size:10px;
+    line-height:1.5;
+  }
+
+  .support-admin-notice code{
+    padding:1px 4px;
+    border-radius:4px;
+    background:#edf3fb;
+    color:#2f5f98;
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:9.5px;
+  }
+
+  .support-admin-list-head,
+  .support-admin-row{
+    display:grid;
+    grid-template-columns:minmax(0,1.35fr) minmax(190px,.8fr) 38px;
+    gap:10px;
+    align-items:center;
+  }
+
+  .support-admin-list-head{
+    padding:0 3px 7px;
+    color:#8a97a8;
+    font-size:9px;
+    font-weight:760;
+    letter-spacing:.055em;
+    text-transform:uppercase;
+  }
+
+  .support-admin-list{
+    display:grid;
+    gap:8px;
+  }
+
+  .support-admin-row{
+    padding:9px;
+    border:1px solid #e0e6ee;
+    border-radius:11px;
+    background:#fbfcfe;
+  }
+
+  .support-admin-row input{
+    width:100%;
+    min-height:38px;
+    padding:8px 10px;
+    border:1px solid #d7e0ea;
+    border-radius:8px;
+    background:#fff;
+    color:#26364b;
+    font-size:11px;
+    outline:none;
+  }
+
+  .support-admin-row input:focus{
+    border-color:#8eb2df;
+    box-shadow:0 0 0 3px rgba(31,95,191,.08);
+  }
+
+  .support-admin-delete{
+    width:34px;
+    height:34px;
+    display:grid;
+    place-items:center;
+    border:1px solid #e2d8d6;
+    border-radius:8px;
+    background:#fff;
+    color:#9a4a42;
+    cursor:pointer;
+    font-size:16px;
+  }
+
+  .support-admin-delete:hover{
+    background:#fff7f5;
+  }
+
+  .support-admin-add{
+    margin-top:11px;
+    min-height:36px;
+    padding:8px 11px;
+    border:1px dashed #b9c8da;
+    border-radius:9px;
+    background:#fff;
+    color:#42658e;
+    font-size:10.5px;
+    font-weight:680;
+    cursor:pointer;
+  }
+
+  .support-admin-add:hover{
+    background:#f7faff;
+  }
+
+  .support-admin-status{
+    min-height:18px;
+    margin-top:10px;
+    color:#2d6f4c;
+    font-size:10px;
+    line-height:1.4;
+  }
+
+  .support-admin-status.is-error{
+    color:#9a4439;
+  }
+
+  .support-admin-actions{
+    margin-top:18px;
+    padding-top:15px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    border-top:1px solid var(--line-soft);
+  }
+
+  .support-admin-actions-right{
+    display:flex;
+    gap:8px;
+  }
+
+  @media(max-width:680px){
+    .support-admin-overlay{padding:10px;}
+    .support-admin-page{padding:18px 14px;border-radius:14px;max-height:calc(100dvh - 20px);}
+    .support-admin-list-head{display:none;}
+    .support-admin-row{grid-template-columns:1fr 42px;gap:8px;}
+    .support-admin-row input:first-child{grid-column:1 / -1;}
+    .support-admin-row input:nth-child(2){grid-column:1;}
+    .support-admin-row .support-admin-delete{grid-column:2;grid-row:2;}
+    .support-admin-actions{align-items:stretch;flex-direction:column-reverse;}
+    .support-admin-actions-right{display:grid;grid-template-columns:1fr;}
+    .support-admin-actions .btn{width:100%;justify-content:center;}
+  }
+
+
+
+  /* v1.2.0 — Supabase-backed support contacts */
+  .support-admin-auth{
+    margin:0 0 18px;
+    padding:12px 14px;
+    display:grid;
+    grid-template-columns:minmax(150px,.45fr) minmax(240px,1fr);
+    gap:5px 12px;
+    align-items:center;
+    border:1px solid #dbe5f0;
+    border-radius:12px;
+    background:#fbfcfe;
+  }
+
+  .support-admin-auth label{
+    color:#40536b;
+    font-size:10px;
+    font-weight:720;
+  }
+
+  .support-admin-auth input{
+    min-height:38px;
+    padding:8px 10px;
+    border:1px solid #d7e0ea;
+    border-radius:9px;
+    background:#fff;
+    color:#26364b;
+    font:inherit;
+    font-size:11px;
+    outline:none;
+  }
+
+  .support-admin-auth input:focus{
+    border-color:#8eb2df;
+    box-shadow:0 0 0 3px rgba(31,95,191,.09);
+  }
+
+  .support-admin-auth > span{
+    grid-column:2;
+    color:#8390a1;
+    font-size:9px;
+    line-height:1.4;
+  }
+
+  .support-admin-page.is-saving{
+    cursor:progress;
+  }
+
+  .support-admin-page.is-saving button,
+  .support-admin-page.is-saving input{
+    pointer-events:none;
+  }
+
+  @media(max-width:680px){
+    .support-admin-auth{grid-template-columns:1fr;}
+    .support-admin-auth > span{grid-column:1;}
+  }
+
 </style>
 </head>
 <body><a class="skip-link" href="#workspaceMain">Перейти до інструкції</a>
 <header class="appbar compact-appbar">
 <div class="appbar-inner">
 <div class="org">
-<div aria-hidden="true" class="org-mark"><i></i><i></i><i></i><i></i></div>
+<div class="org-mark" aria-label="Microsoft 365">
+<i aria-hidden="true"></i><i aria-hidden="true"></i><i aria-hidden="true"></i><button class="org-admin-square" id="supportAdminTrigger" type="button" aria-label="Службове меню" onclick="openSupportAdmin()"></button>
+</div>
 <div class="appbar-copy">
 <div class="appbar-brandline"><strong>Microsoft 365</strong><span>Корпоративне середовище</span></div>
 <div class="appbar-context">Перший вхід та налаштування</div>
@@ -3244,8 +3618,15 @@
 <div class="support-area">
 <div aria-label="Допомога на поточному кроці" aria-live="polite" class="support-note" id="supportNote" role="dialog">
 <strong id="supportTitle">Допомога на цьому кроці</strong>
-<p id="supportText">Ми підготуємо повідомлення з назвою поточного кроку.</p>
-<a class="support-link" href="#" id="supportLink" rel="noopener noreferrer" target="_blank">
+<p id="supportText">Оберіть військову частину, щоб відкрити правильний контакт підтримки.</p>
+<div class="support-unit-field">
+<label for="supportUnitSelect">Військова частина</label>
+<select id="supportUnitSelect" onchange="updateSupportDestination()">
+<option value="">Оберіть військову частину</option>
+</select>
+</div>
+<div class="support-unit-empty" id="supportUnitEmpty" hidden>Контакти ще не налаштовані.</div>
+<a aria-disabled="true" class="support-link is-disabled" href="#" id="supportLink" rel="noopener noreferrer" target="_blank">
       Написати у WhatsApp
     </a>
 </div>
@@ -4118,9 +4499,386 @@
 </div>
 </div>
 </div>
+
+<script id="supportUnitsConfig" type="application/json">
+[
+  {
+    "id": "Т0100",
+    "name": "Т0100",
+    "phone": "",
+    "active": true
+  },
+  {
+    "id": "Т0150",
+    "name": "Т0150",
+    "phone": "",
+    "active": true
+  },
+  {
+    "id": "Т0330",
+    "name": "Т0330",
+    "phone": "",
+    "active": true
+  },
+  {
+    "id": "Т0930",
+    "name": "Т0930",
+    "phone": "",
+    "active": true
+  },
+  {
+    "id": "Т0440",
+    "name": "Т0440",
+    "phone": "",
+    "active": true
+  },
+  {
+    "id": "Т0160",
+    "name": "Т0160",
+    "phone": "",
+    "active": true
+  },
+  {
+    "id": "Т0450",
+    "name": "Т0450",
+    "phone": "",
+    "active": true
+  },
+  {
+    "id": "Т0970",
+    "name": "Т0970",
+    "phone": "",
+    "active": true
+  },
+  {
+    "id": "Т0980",
+    "name": "Т0980",
+    "phone": "",
+    "active": true
+  },
+  {
+    "id": "Т0320",
+    "name": "Т0320",
+    "phone": "",
+    "active": true
+  },
+  {
+    "id": "Т0170",
+    "name": "Т0170",
+    "phone": "",
+    "active": true
+  },
+  {
+    "id": "Т0120",
+    "name": "Т0120",
+    "phone": "",
+    "active": true
+  },
+  {
+    "id": "Т0310",
+    "name": "Т0310",
+    "phone": "",
+    "active": true
+  },
+  {
+    "id": "Т0400",
+    "name": "Т0400",
+    "phone": "",
+    "active": true
+  },
+  {
+    "id": "Т0940",
+    "name": "Т0940",
+    "phone": "",
+    "active": true
+  },
+  {
+    "id": "Т0460",
+    "name": "Т0460",
+    "phone": "",
+    "active": true
+  },
+  {
+    "id": "Т0140",
+    "name": "Т0140",
+    "phone": "",
+    "active": true
+  },
+  {
+    "id": "Т0110",
+    "name": "Т0110",
+    "phone": "",
+    "active": true
+  },
+  {
+    "id": "Т0200",
+    "name": "Т0200",
+    "phone": "",
+    "active": true
+  },
+  {
+    "id": "Т0300",
+    "name": "Т0300",
+    "phone": "",
+    "active": true
+  },
+  {
+    "id": "Т0910",
+    "name": "Т0910",
+    "phone": "",
+    "active": true
+  },
+  {
+    "id": "Т0430",
+    "name": "Т0430",
+    "phone": "",
+    "active": true
+  },
+  {
+    "id": "Т0760",
+    "name": "Т0760",
+    "phone": "",
+    "active": true
+  },
+  {
+    "id": "Т0920",
+    "name": "Т0920",
+    "phone": "",
+    "active": true
+  },
+  {
+    "id": "Т0950",
+    "name": "Т0950",
+    "phone": "",
+    "active": true
+  },
+  {
+    "id": "Т0960",
+    "name": "Т0960",
+    "phone": "",
+    "active": true
+  },
+  {
+    "id": "Т0500",
+    "name": "Т0500",
+    "phone": "",
+    "active": true
+  },
+  {
+    "id": "Т0710",
+    "name": "Т0710",
+    "phone": "",
+    "active": true
+  },
+  {
+    "id": "Т0505",
+    "name": "Т0505",
+    "phone": "",
+    "active": true
+  }
+]
+</script>
+
+<div class="support-admin-overlay" id="supportAdminPage" hidden>
+  <section class="support-admin-page" role="dialog" aria-modal="true" aria-labelledby="supportAdminTitle">
+    <div class="support-admin-head">
+      <div>
+        <div class="support-admin-kicker">Службова сторінка</div>
+        <h2 id="supportAdminTitle" tabindex="-1">Контакти підтримки</h2>
+        <p>Закріпіть за кожною військовою частиною номер WhatsApp.</p>
+      </div>
+      <button class="support-admin-close" type="button" aria-label="Закрити" onclick="closeSupportAdmin()">×</button>
+    </div>
+
+    <div class="support-admin-notice">
+      <strong>Контакти зберігаються централізовано</strong>
+      <span>Зміни записуються в Supabase і після збереження одразу доступні всім користувачам інструкції. GitHub оновлювати не потрібно.</span>
+    </div>
+
+    <div class="support-admin-auth">
+      <label for="supportAdminPassword">Службовий пароль</label>
+      <input id="supportAdminPassword" type="password" autocomplete="current-password" placeholder="Введіть пароль для збереження" />
+      <span>Пароль потрібен лише для зміни контактів і не зберігається в HTML.</span>
+    </div>
+
+    <div class="support-admin-list-head">
+      <span>Військова частина</span><span>Номер WhatsApp</span><span></span>
+    </div>
+    <div class="support-admin-list" id="supportAdminList"></div>
+
+    <button class="support-admin-add" type="button" onclick="addSupportAdminRow()">+ Додати військову частину</button>
+
+    <div class="support-admin-status" id="supportAdminStatus" role="status" aria-live="polite"></div>
+
+    <div class="support-admin-actions">
+      <button class="btn secondary" type="button" onclick="reloadSupportAdminFromServer()">Оновити з сервера</button>
+      <div class="support-admin-actions-right">
+        <button class="btn primary" id="supportAdminSaveBtn" type="button" onclick="saveSupportAdmin()">Зберегти зміни</button>
+      </div>
+    </div>
+  </section>
+</div>
+
 <script>
   const completed = new Set();
-  const SUPPORT_WHATSAPP_NUMBER = "380688239942";
+  const SUPPORT_UNITS_API = "https://gxjjwgdzzefadjdlqwoe.supabase.co/functions/v1/m365-support-units";
+  let supportUnitsCache = [];
+  let supportUnitsLoadPromise = null;
+
+  function normalizeSupportPhone(value){
+    let phone = String(value || '').replace(/\D/g,'');
+    if(phone.length === 10 && phone.startsWith('0')) phone = '38' + phone;
+    return phone;
+  }
+
+  function sanitizeSupportUnits(units){
+    if(!Array.isArray(units)) return [];
+
+    return units
+      .map((item, index) => {
+        const name = String(item?.name ?? item?.code ?? '').trim();
+        const id = String(item?.id ?? item?.code ?? name || `unit-${index + 1}`).trim();
+        const phone = normalizeSupportPhone(item?.phone || '');
+        return {
+          id,
+          name,
+          phone:/^\d{10,15}$/.test(phone) ? phone : '',
+          active:item?.active !== false,
+          sort_order:Number.isFinite(Number(item?.sort_order)) ? Number(item.sort_order) : index + 1
+        };
+      })
+      .filter(item => item.name);
+  }
+
+  function readPublishedSupportUnits(){
+    try{
+      const node = document.getElementById('supportUnitsConfig');
+      if(!node) return [];
+      return sanitizeSupportUnits(JSON.parse(node.textContent || '[]'));
+    }catch{
+      return [];
+    }
+  }
+
+  supportUnitsCache = readPublishedSupportUnits();
+
+  function getSupportUnits(){
+    return supportUnitsCache;
+  }
+
+  async function loadSupportUnitsRemote({force = false, rerenderAdmin = false} = {}){
+    if(supportUnitsLoadPromise && !force) return supportUnitsLoadPromise;
+
+    supportUnitsLoadPromise = (async () => {
+      const response = await fetch(SUPPORT_UNITS_API, {
+        method:'GET',
+        cache:'no-store',
+        headers:{'Accept':'application/json'}
+      });
+      if(!response.ok) throw new Error('Не вдалося завантажити контакти підтримки');
+
+      const payload = await response.json();
+      const units = sanitizeSupportUnits(payload?.units || []);
+      if(units.length || Array.isArray(payload?.units)){
+        supportUnitsCache = units;
+      }
+
+      renderSupportUnitSelect();
+
+      const adminPage = document.getElementById('supportAdminPage');
+      if(rerenderAdmin && adminPage && !adminPage.hidden){
+        renderSupportAdminRows(supportUnitsCache);
+      }
+
+      return supportUnitsCache;
+    })();
+
+    try{
+      return await supportUnitsLoadPromise;
+    }finally{
+      supportUnitsLoadPromise = null;
+    }
+  }
+
+  function renderSupportUnitSelect(){
+    const select = document.getElementById('supportUnitSelect');
+    const empty = document.getElementById('supportUnitEmpty');
+    const link = document.getElementById('supportLink');
+    if(!select || !empty || !link) return;
+
+    const previous = select.value;
+    const units = getSupportUnits().filter(unit => unit.active !== false);
+
+    select.innerHTML = '<option value="">Оберіть військову частину</option>';
+
+    units.forEach(unit => {
+      const option = document.createElement('option');
+      option.value = unit.id;
+      option.textContent = unit.name;
+      select.appendChild(option);
+    });
+
+    if(previous && units.some(unit => unit.id === previous)){
+      select.value = previous;
+    }
+
+    if(!units.length){
+      empty.hidden = false;
+      empty.textContent = 'Контакти ще не налаштовані.';
+    }else{
+      empty.hidden = true;
+    }
+
+    updateSupportDestination();
+  }
+
+  function buildSupportMessage(unitName){
+    const currentStep = getCurrentStepName();
+    const routeContext = getRouteContextText();
+    const messageParts = [
+      'Вітаю! Мені потрібна допомога з налаштуванням mil-акаунта.',
+      unitName ? 'Військова частина: ' + unitName + '.' : '',
+      'Я зупинився(-лась) на кроці: ' + currentStep + '.'
+    ].filter(Boolean);
+
+    if(routeContext){
+      messageParts.push('Мій маршрут: ' + routeContext + '.');
+    }
+
+    return messageParts.join('\n');
+  }
+
+  function updateSupportDestination(){
+    const select = document.getElementById('supportUnitSelect');
+    const link = document.getElementById('supportLink');
+    const empty = document.getElementById('supportUnitEmpty');
+    if(!select || !link || !empty) return;
+
+    const unit = getSupportUnits().find(item => item.id === select.value);
+
+    if(!unit){
+      link.href = '#';
+      link.classList.add('is-disabled');
+      link.setAttribute('aria-disabled','true');
+      if(getSupportUnits().length) empty.hidden = true;
+      return;
+    }
+
+    if(!unit.phone){
+      link.href = '#';
+      link.classList.add('is-disabled');
+      link.setAttribute('aria-disabled','true');
+      empty.hidden = false;
+      empty.textContent = `Для ${unit.name} номер підтримки ще не налаштований.`;
+      return;
+    }
+
+    empty.hidden = true;
+    link.href = 'https://wa.me/' + unit.phone + '?text=' + encodeURIComponent(buildSupportMessage(unit.name));
+    link.classList.remove('is-disabled');
+    link.setAttribute('aria-disabled','false');
+  }
+
 const supportHints = {
     start: 'Перед початком перевірте, що у вас є корпоративна адреса, тимчасовий пароль і телефон для підтвердження.',
     findTeams: 'Натисніть «Пуск» і почніть вводити Teams. Якщо програма встановлена, Windows покаже її у результатах пошуку.',
@@ -4193,12 +4951,11 @@ const supportHints = {
     clearSupportIdleAttention();
 
     const note = document.getElementById('supportNote');
-    const link = document.getElementById('supportLink');
     const text = document.getElementById('supportText');
     const title = document.getElementById('supportTitle');
     const fab = document.getElementById('supportFab');
 
-    if(!note || !link || !text || !fab) return;
+    if(!note || !text || !title || !fab) return;
 
     if(note.classList.contains('show')){
       closeSupportNote();
@@ -4206,12 +4963,11 @@ const supportHints = {
     }
 
     const currentId = getCurrentScreenId();
-    const currentStep = getCurrentStepName();
     const hint = supportHints[currentId] || 'Перевірте поточний крок ще раз. Якщо проблема лишилася, напишіть у підтримку.';
     const routeContext = getRouteContextText();
     const position = getRoutePosition(currentId);
 
-    title.textContent = 'Допомога на цьому кроці';
+    title.textContent = 'Потрібна допомога?';
 
     text.innerHTML =
       '<span class="support-context">' +
@@ -4222,24 +4978,218 @@ const supportHints = {
         ? '<div class="support-route">Ваш маршрут: ' + routeContext + '.</div>'
         : '');
 
-    const messageParts = [
-      'Вітаю! Мені потрібна допомога з налаштуванням mil-акаунта.',
-      'Я зупинився(-лась) на кроці: ' + currentStep + '.'
-    ];
-
-    if(routeContext){
-      messageParts.push('Мій маршрут: ' + routeContext + '.');
-    }
-
-    link.href =
-      'https://wa.me/' +
-      SUPPORT_WHATSAPP_NUMBER +
-      '?text=' +
-      encodeURIComponent(messageParts.join('\n'));
-
-    link.style.display = 'inline-flex';
+    renderSupportUnitSelect();
+    loadSupportUnitsRemote().catch(() => {});
     note.classList.add('show');
     fab.setAttribute('aria-expanded','true');
+  }
+
+
+
+  function createSupportUnitId(){
+    return 'unit-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2,7);
+  }
+
+  function makeSupportAdminRow(unit = {}){
+    const row = document.createElement('div');
+    row.className = 'support-admin-row';
+    row.dataset.id = unit.id || unit.code || createSupportUnitId();
+
+    const name = document.createElement('input');
+    name.type = 'text';
+    name.className = 'support-admin-name';
+    name.placeholder = 'Наприклад: Т0100';
+    name.value = unit.name || unit.code || '';
+    name.setAttribute('aria-label','Назва військової частини');
+
+    const phone = document.createElement('input');
+    phone.type = 'tel';
+    phone.className = 'support-admin-phone';
+    phone.placeholder = '+380…';
+    phone.value = unit.phone || '';
+    phone.setAttribute('aria-label','Номер WhatsApp');
+
+    const remove = document.createElement('button');
+    remove.type = 'button';
+    remove.className = 'support-admin-delete';
+    remove.setAttribute('aria-label','Видалити військову частину');
+    remove.textContent = '×';
+    remove.addEventListener('click', () => row.remove());
+
+    row.append(name, phone, remove);
+    return row;
+  }
+
+  function renderSupportAdminRows(units = getSupportUnits()){
+    const list = document.getElementById('supportAdminList');
+    if(!list) return;
+
+    list.innerHTML = '';
+    units.forEach(unit => list.appendChild(makeSupportAdminRow(unit)));
+
+    if(!units.length){
+      list.appendChild(makeSupportAdminRow());
+    }
+  }
+
+  function addSupportAdminRow(){
+    const list = document.getElementById('supportAdminList');
+    if(!list) return;
+    const row = makeSupportAdminRow();
+    list.appendChild(row);
+    row.querySelector('.support-admin-name')?.focus();
+  }
+
+  function collectSupportAdminUnits(){
+    const rows = [...document.querySelectorAll('#supportAdminList .support-admin-row')];
+    const units = [];
+    const errors = [];
+    const names = new Set();
+
+    rows.forEach((row, index) => {
+      const name = row.querySelector('.support-admin-name')?.value?.trim() || '';
+      const rawPhone = row.querySelector('.support-admin-phone')?.value || '';
+      const phone = normalizeSupportPhone(rawPhone);
+
+      if(!name && !rawPhone) return;
+      if(!name){
+        errors.push(`Рядок ${index + 1}: введіть назву військової частини.`);
+        return;
+      }
+      if(names.has(name)){
+        errors.push(`Військова частина ${name} додана двічі.`);
+        return;
+      }
+      if(phone && !/^\d{10,15}$/.test(phone)){
+        errors.push(`Рядок ${index + 1}: перевірте номер телефону.`);
+        return;
+      }
+
+      names.add(name);
+      units.push({
+        id:name,
+        name,
+        phone,
+        active:true,
+        sort_order:units.length + 1
+      });
+    });
+
+    return {units, errors};
+  }
+
+  function setSupportAdminStatus(message, isError = false){
+    const status = document.getElementById('supportAdminStatus');
+    if(!status) return;
+    status.textContent = message || '';
+    status.classList.toggle('is-error', Boolean(isError));
+  }
+
+  function setSupportAdminSaving(isSaving){
+    const page = document.querySelector('#supportAdminPage .support-admin-page');
+    const button = document.getElementById('supportAdminSaveBtn');
+    page?.classList.toggle('is-saving', Boolean(isSaving));
+    if(button) button.textContent = isSaving ? 'Зберігаємо…' : 'Зберегти зміни';
+  }
+
+  async function saveSupportAdmin(){
+    const {units, errors} = collectSupportAdminUnits();
+    if(errors.length){
+      setSupportAdminStatus(errors[0], true);
+      return;
+    }
+    if(!units.length){
+      setSupportAdminStatus('Додайте хоча б одну військову частину.', true);
+      return;
+    }
+
+    const password = document.getElementById('supportAdminPassword')?.value || '';
+    if(!password){
+      setSupportAdminStatus('Введіть службовий пароль.', true);
+      document.getElementById('supportAdminPassword')?.focus();
+      return;
+    }
+
+    setSupportAdminSaving(true);
+    setSupportAdminStatus('Зберігаємо зміни…');
+
+    try{
+      const response = await fetch(SUPPORT_UNITS_API, {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({
+          password,
+          units:units.map((unit, index) => ({
+            code:unit.name,
+            phone:unit.phone,
+            active:true,
+            sort_order:index + 1
+          }))
+        })
+      });
+
+      const payload = await response.json().catch(() => ({}));
+      if(!response.ok){
+        throw new Error(payload?.error || 'Не вдалося зберегти контакти');
+      }
+
+      supportUnitsCache = sanitizeSupportUnits(payload?.units || units);
+      renderSupportUnitSelect();
+      setSupportAdminStatus('Збережено. Зміни вже доступні всім користувачам.');
+    }catch(error){
+      console.error(error);
+      setSupportAdminStatus(error?.message || 'Не вдалося зберегти контакти.', true);
+    }finally{
+      setSupportAdminSaving(false);
+    }
+  }
+
+  async function openSupportAdmin(){
+    closeSupportNote();
+    clearSupportIdleAttention();
+
+    const page = document.getElementById('supportAdminPage');
+    if(!page) return;
+
+    renderSupportAdminRows(getSupportUnits());
+    setSupportAdminStatus('Оновлюємо дані з сервера…');
+    page.hidden = false;
+    document.body.classList.add('support-admin-open');
+
+    window.setTimeout(() => {
+      document.getElementById('supportAdminTitle')?.focus();
+    }, 20);
+
+    try{
+      await loadSupportUnitsRemote({force:true});
+      renderSupportAdminRows(getSupportUnits());
+      setSupportAdminStatus('Дані актуальні.');
+    }catch(error){
+      console.error(error);
+      setSupportAdminStatus('Не вдалося отримати дані із сервера. Показано резервний список.', true);
+    }
+  }
+
+  function closeSupportAdmin(){
+    const page = document.getElementById('supportAdminPage');
+    if(page) page.hidden = true;
+    document.body.classList.remove('support-admin-open');
+    const password = document.getElementById('supportAdminPassword');
+    if(password) password.value = '';
+    scheduleSupportIdleAttention(getCurrentScreenId());
+  }
+
+  async function reloadSupportAdminFromServer(){
+    setSupportAdminStatus('Оновлюємо дані з сервера…');
+    try{
+      await loadSupportUnitsRemote({force:true});
+      renderSupportAdminRows(getSupportUnits());
+      renderSupportUnitSelect();
+      setSupportAdminStatus('Дані оновлено з Supabase.');
+    }catch(error){
+      console.error(error);
+      setSupportAdminStatus('Не вдалося оновити дані з сервера.', true);
+    }
   }
 
   document.addEventListener('click', function(e){
@@ -4253,6 +5203,12 @@ const supportHints = {
 
   document.addEventListener('keydown', function(e){
     if(e.key !== 'Escape') return;
+
+    const adminPage = document.getElementById('supportAdminPage');
+    if(adminPage && !adminPage.hidden){
+      closeSupportAdmin();
+      return;
+    }
 
     const overlay = document.getElementById('resumeOverlay');
     if(overlay && !overlay.hidden){
@@ -4824,6 +5780,12 @@ const supportHints = {
     });
   }
 
+  document.getElementById('supportAdminPage')?.addEventListener('click', function(e){
+    if(e.target === this) closeSupportAdmin();
+  });
+
+  renderSupportUnitSelect();
+
   decorateChoiceGroups();
   buildTaskComposition();
   enableSafeActionLayouts();
@@ -4831,6 +5793,8 @@ const supportHints = {
   initializeBrowserHistory();
   initializeSavedSession();
   scheduleSupportIdleAttention(getCurrentScreenId());
+
+  loadSupportUnitsRemote().catch(() => {});
 
   document.querySelectorAll('.screen.active .choice').forEach(choice => {
     choice.classList.add('attention');
