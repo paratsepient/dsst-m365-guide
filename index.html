@@ -2230,7 +2230,7 @@
     max-width:980px;
     margin-top:26px;
     display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
+    grid-template-columns:repeat(4,minmax(0,1fr));
     gap:10px;
   }
 
@@ -2260,6 +2260,65 @@
     width:17px;
     height:17px;
     display:block;
+  }
+  .start-service-mobile{
+    border-color:#bfe2de;
+    background:linear-gradient(180deg,#f8fffe 0%,#f1fbf9 100%);
+  }
+
+  .start-service-mobile .start-service-icon{
+    background:linear-gradient(145deg,#2367c7 0%,#168fa3 58%,#1b9a72 100%);
+    color:#fff;
+    box-shadow:0 5px 14px rgba(31,95,191,.16);
+  }
+
+  .start-service-mobile small{
+    color:#177d72;
+  }
+
+  .mobile-access-card{
+    max-width:980px;
+    margin-top:14px;
+    padding:14px 16px;
+    display:grid;
+    grid-template-columns:42px minmax(0,1fr);
+    gap:13px;
+    align-items:center;
+    border:1px solid #bfdfdb;
+    border-radius:13px;
+    background:linear-gradient(100deg,#f4fbff 0%,#f3fcf9 100%);
+  }
+
+  .mobile-access-phone{
+    width:38px;
+    height:38px;
+    display:grid;
+    place-items:center;
+    border-radius:11px;
+    color:#fff;
+    background:linear-gradient(145deg,#2367c7 0%,#168fa3 58%,#1b9a72 100%);
+    box-shadow:0 5px 14px rgba(31,95,191,.14);
+  }
+
+  .mobile-access-phone svg{
+    width:19px;
+    height:19px;
+    display:block;
+  }
+
+  .mobile-access-card strong{
+    display:block;
+    margin-bottom:3px;
+    color:#173c55;
+    font-size:12px;
+    font-weight:720;
+  }
+
+  .mobile-access-card span{
+    display:block;
+    color:#536879;
+    font-size:11px;
+    line-height:1.5;
   }
 
   .start-service small{
@@ -2422,6 +2481,12 @@
 
     .start-actions{
       margin-top:10px;
+    }
+  }
+
+  @media (min-width:900px) and (max-width:1180px){
+    .start-services{
+      grid-template-columns:repeat(2,minmax(0,1fr));
     }
   }
 
@@ -3581,7 +3646,7 @@
   }
 
 </style>
-  <meta name="m365-support-build" content="1.2.2" />
+  <meta name="m365-support-build" content="1.2.3" />
 </head>
 <body><a class="skip-link" href="#workspaceMain">Перейти до інструкції</a>
 <header class="appbar compact-appbar">
@@ -3676,6 +3741,18 @@
 <div>
 <small>Файли</small>
 <strong>Корпоративний OneDrive</strong>
+</div>
+</div>
+<div class="start-service start-service-mobile">
+<div aria-hidden="true" class="start-service-icon">
+<svg viewbox="0 0 24 24">
+<rect x="7" y="3.5" width="10" height="17" rx="2.2" fill="none" stroke="currentColor" stroke-width="1.7"></rect>
+<path d="M10.2 6h3.6M11.2 17.8h1.6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.7"></path>
+</svg>
+</div>
+<div>
+<small>Мобільний доступ</small>
+<strong>Teams і OneDrive також зі смартфона</strong>
 </div>
 </div>
 </div>
@@ -4161,19 +4238,27 @@
 </div>
 </div>
 </div>
-<div class="notice">
-<div class="dot"></div>
-<div><strong>Важливо:</strong> файл зберігається у вашому корпоративному OneDrive. Після входу в той самий mil-акаунт файл можна відкрити з будь-якого пристрою.</div>
+<div class="mobile-access-card">
+<div aria-hidden="true" class="mobile-access-phone">
+<svg viewbox="0 0 24 24">
+<rect x="7" y="3.5" width="10" height="17" rx="2.2" fill="none" stroke="currentColor" stroke-width="1.7"></rect>
+<path d="M10.2 6h3.6M11.2 17.8h1.6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.7"></path>
+</svg>
+</div>
+<div>
+<strong>Ваші файли доступні і зі смартфона</strong>
+<span>Увійдіть у той самий mil-акаунт у Teams або OneDrive на телефоні — і матимете доступ до корпоративних файлів.</span>
+</div>
 </div>
 <div class="actions">
-<button class="btn primary" onclick="go('oneDriveEverywhere')" type="button">Доступ з інших пристроїв</button>
+<button class="btn primary" onclick="go('oneDriveEverywhere')" type="button">Телефон та інші пристрої</button>
 <button class="btn ghost" onclick="go('oneDriveIntro')" type="button">← Назад</button>
 </div>
 </section>
 <section aria-labelledby="oneDriveEverywhere-title" class="screen" data-step="3" id="oneDriveEverywhere">
 <div class="eyebrow">OneDrive · Доступ до файлів</div>
 <h1 id="oneDriveEverywhere-title" tabindex="-1">Підключення OneDrive до комп’ютера — <span class="optional-word">необов’язкове</span></h1>
-<p class="lead">Ви вже можете користуватися OneDrive через Teams і відкривати свої файли після входу в mil-акаунт на будь-якому пристрої. Додатково OneDrive можна підключити безпосередньо до Windows.</p>
+<p class="lead">Ви вже можете користуватися OneDrive через Teams і відкривати свої файли після входу в mil-акаунт на будь-якому пристрої — <strong>у тому числі зі смартфона</strong>. Додатково OneDrive можна підключити безпосередньо до Windows.</p>
 <div class="analogy">
 <div class="analogy-icon"><svg aria-hidden="true" class="ui-icon" viewbox="0 0 24 24"><path d="M18.7 8.2A7 7 0 0 0 6.4 6.5L4.8 8.1M5.3 15.8a7 7 0 0 0 12.3 1.7l1.6-1.6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.7"></path><path d="M4.6 4.9v3.4H8M19.4 19.1v-3.4H16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"></path></svg></div>
 <div>
